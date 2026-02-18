@@ -2,7 +2,15 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Hero } from "@/components/landing/Hero";
 
-export default function LandingPage() {
+import { stackServerApp } from "@/stack/server";
+import { redirect } from "next/navigation";
+
+export default async function LandingPage() {
+  const user = await stackServerApp.getUser();
+  if (user) {
+    redirect("/home");
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-16 items-center justify-between px-6 border-b border-border/10">
