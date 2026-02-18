@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CrushButton } from "@/components/dating/CrushButton";
 
 interface ProfileCardProps {
   profile: {
@@ -48,6 +49,11 @@ export function ProfileCard({ profile }: ProfileCardProps) {
             <Button size="icon" variant="outline" className="rounded-full bg-white/10 border-white/20 text-white hover:bg-white/20 h-10 w-10">
                 👋
             </Button>
+            {/* Secret Crush Button */}
+             <div className="absolute top-4 right-4 z-30">
+                 {/* Assuming we pass real ID, for now using name as ID mock */}
+                <CrushButton crushId={profile.name} /> 
+             </div>
         </div>
       </div>
     </Card>

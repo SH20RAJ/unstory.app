@@ -9,11 +9,11 @@ Instead of traditional social media or swipe-based dating, Unistory builds a **t
 
 Unistory aims to become the **operating layer for college life**, combining:
 
-* Campus activity coordination
-* Soft social discovery
-* Event participation
-* Messaging around real interactions
-* Verified student identity
+- Campus activity coordination
+- Soft social discovery
+- Event participation
+- Messaging around real interactions
+- Verified student identity
 
 The product focuses on real-world engagement first. Social and dating features emerge from shared context rather than anonymous feeds.
 
@@ -34,22 +34,22 @@ The product focuses on real-world engagement first. Social and dating features e
 
 ## Frontend
 
-* Next.js (App Router)
-* TypeScript
-* Tailwind CSS
-* Server Components by default
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Server Components by default
 
 ## Backend
 
-* Next.js Route Handlers / Server Actions
-* PostgreSQL
-* Redis (presence & caching)
+- Next.js Route Handlers / Server Actions
+- PostgreSQL
+- Redis (presence & caching)
 
 ## Infrastructure (Planned)
 
-* Edge runtime where possible
-* ISR and caching for feeds
-* Real-time messaging layer
+- Edge runtime where possible
+- ISR and caching for feeds
+- Real-time messaging layer
 
 ---
 
@@ -69,13 +69,13 @@ The product focuses on real-world engagement first. Social and dating features e
 
 ### Directory Purpose
 
-* `/app` → routes, layouts, pages
-* `/components/ui` → design system primitives
-* `/components/features` → domain logic
-* `/lib` → API clients, utilities, DB helpers
-* `/hooks` → reusable logic
-* `/types` → shared TypeScript definitions
-* `/config` → theme and constants
+- `/app` → routes, layouts, pages
+- `/components/ui` → design system primitives
+- `/components/features` → domain logic
+- `/lib` → API clients, utilities, DB helpers
+- `/hooks` → reusable logic
+- `/types` → shared TypeScript definitions
+- `/config` → theme and constants
 
 ---
 
@@ -101,10 +101,10 @@ Route groups keep layouts clean and scalable.
 
 ## Typography
 
-* Display: 32px
-* Heading: 22px
-* Body: 16px
-* Caption: 12px
+- Display: 32px
+- Heading: 22px
+- Body: 16px
+- Caption: 12px
 
 ## Spacing Scale
 
@@ -124,60 +124,67 @@ UI Primitives → Feature Components → Page Layouts
 
 ## Onboarding
 
-* College email verification
-* Profile setup
-* Interests & clubs
-* First activity prompt
+- College email verification
+- Profile setup
+- Interests & clubs
+- First activity prompt
 
 ## Home Feed
 
-* Active users
-* Activity cards
-* Suggested connections
+- Active users
+- Activity cards
+- Suggested connections
 
 ## Activity
 
-* Create activity
-* Join actions
-* Context-driven engagement
+- Create activity
+- Join actions
+- Context-driven engagement
 
 ## Events
 
-* Today / Week / Clubs / Popular tabs
-* Grid or list layout
+- Today / Week / Clubs / Popular tabs
+- Grid or list layout
 
 ## Connect
 
-* Suggested people based on shared context
-* No swipe-based UI
+- Suggested people based on shared context
+- No swipe-based UI
 
 ## Chat
 
-* Conversations unlocked via shared activity
-* Context banner at top
+- Conversations unlocked via shared activity
+- Context banner at top
 
 ## Profile
 
-* Campus identity
-* Activities
-* Mutual connections
+- Campus identity
+- Activities
+- Mutual connections
+- Secret Crush (Dating)
+
+## Dating (Secret Crush)
+
+- Add up to 5 secret crushes
+- Mutual crushes trigger a "It's a Match!" notification
+- Context-driven, not swipe-based
 
 ## Search
 
-* People
-* Activities
-* Clubs
+- People
+- Activities
+- Clubs
 
 ## Notifications
 
-* Grouped updates
-* Timeline layout
+- Grouped updates
+- Timeline layout
 
 ## Settings
 
-* Privacy
-* Notifications
-* Visibility
+- Privacy
+- Notifications
+- Visibility
 
 ---
 
@@ -208,9 +215,9 @@ Avoid client-side data fetching for SEO content.
 
 ## SEO Guidelines
 
-* Every page exports metadata.
-* Use semantic HTML.
-* Use slugs instead of query params.
+- Every page exports metadata.
+- Use semantic HTML.
+- Use slugs instead of query params.
 
 Example:
 
@@ -223,27 +230,27 @@ Example:
 
 ## Styling Rules
 
-* Tailwind only.
-* No inline styles.
-* No hardcoded colors.
-* Use design tokens.
+- Tailwind only.
+- No inline styles.
+- No hardcoded colors.
+- Use design tokens.
 
 ---
 
 ## Component Guidelines
 
-* Components < 200 lines.
-* Hooks < 120 lines.
-* UI primitives inside `/components/ui`.
-* Feature logic inside `/components/features`.
+- Components < 200 lines.
+- Hooks < 120 lines.
+- UI primitives inside `/components/ui`.
+- Feature logic inside `/components/features`.
 
 ---
 
 ## Naming Conventions
 
-* PascalCase → Components
-* camelCase → functions
-* kebab-case → routes
+- PascalCase → Components
+- camelCase → functions
+- kebab-case → routes
 
 Examples:
 
@@ -257,19 +264,19 @@ activity-feed/
 
 # Performance Standards
 
-* Use `next/image` for images.
-* Use dynamic imports for heavy components.
-* Avoid global client state.
-* Add skeleton loaders.
-* Prevent empty feed states.
+- Use `next/image` for images.
+- Use dynamic imports for heavy components.
+- Avoid global client state.
+- Add skeleton loaders.
+- Prevent empty feed states.
 
 ---
 
 # Security Rules
 
-* API keys must remain server-side.
-* Validate all inputs in server actions.
-* No direct DB access from client components.
+- API keys must remain server-side.
+- Validate all inputs in server actions.
+- No direct DB access from client components.
 
 ---
 
@@ -332,25 +339,25 @@ Unistory is not a traditional social platform.
 
 It is a **campus interaction layer** where:
 
-* activities drive connections
-* identity builds trust
-* real-world interaction is prioritized
+- activities drive connections
+- identity builds trust
+- real-world interaction is prioritized
 
 The design avoids:
 
-* anonymous posting
-* swipe addiction
-* influencer metrics
+- anonymous posting
+- swipe addiction
+- influencer metrics
 
 ---
 
 # Future Roadmap
 
-* AI activity recommendations
-* Smart connection graph
-* Club management tools
-* Inter-college network
-* Campus assistant features
+- AI activity recommendations
+- Smart connection graph
+- Club management tools
+- Inter-college network
+- Campus assistant features
 
 ---
 

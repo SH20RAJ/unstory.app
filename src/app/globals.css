@@ -48,15 +48,15 @@
 }
 
 :root {
-	--radius: 0.625rem;
-    /* Light Mode - Standard clean look */
+	--radius: 1.5rem;
+    /* Light Mode */
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.5 0.2 290); /* Violet */
+	--primary: oklch(0.205 0 0);
 	--primary-foreground: oklch(0.985 0 0);
 	--secondary: oklch(0.97 0 0);
 	--secondary-foreground: oklch(0.205 0 0);
@@ -67,7 +67,7 @@
 	--destructive: oklch(0.577 0.245 27.325);
 	--border: oklch(0.922 0 0);
 	--input: oklch(0.922 0 0);
-	--ring: oklch(0.5 0.2 290); /* Violet Ring */
+	--ring: oklch(0.145 0 0);
 	--chart-1: oklch(0.646 0.222 41.116);
 	--chart-2: oklch(0.6 0.118 184.704);
 	--chart-3: oklch(0.398 0.07 227.392);
@@ -80,42 +80,42 @@
 	--sidebar-accent: oklch(0.97 0 0);
 	--sidebar-accent-foreground: oklch(0.205 0 0);
 	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.5 0.2 290);
+	--sidebar-ring: oklch(0.145 0 0);
 }
 
 .dark {
-    /* Dark Mode - Gaatha Theme (Gold/Violet/Black) */
-	--background: #0a0a0a; /* Deep Rich Black */
-	--foreground: oklch(0.985 0 0);
-	--card: #171717; /* Lighter Black */
-	--card-foreground: oklch(0.985 0 0);
-	--popover: #171717;
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: #7c3aed; /* Royal Violet */
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: #1f1f1f;
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: #262626;
-	--muted-foreground: #a3a3a3;
-	--accent: #EBAF3F; /* Gold Accent */
-	--accent-foreground: #0a0a0a;
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: #262626;
-	--input: #262626;
-	--ring: #7c3aed; /* Violet Ring */
+    /* Dark Mode - Dashboard Theme (Deep Black/Yellow) */
+	--background: #09090b; /* Deepest Black/Zinc-950 */
+	--foreground: #FAFAFA;
+	--card: #121212; /* Slightly Lighter for Cards */
+	--card-foreground: #FAFAFA;
+	--popover: #121212;
+	--popover-foreground: #FAFAFA;
+	--primary: #FFE500; /* Vibrant Yellow from design */
+	--primary-foreground: #000000;
+	--secondary: #27272a; /* Zinc-800 */
+	--secondary-foreground: #FAFAFA;
+	--muted: #27272a;
+	--muted-foreground: #a1a1aa;
+	--accent: #FFE500;
+	--accent-foreground: #000000;
+	--destructive: oklch(0.396 0.141 25.723);
+	--border: #27272a;
+	--input: #27272a;
+	--ring: #FFE500;
 	--chart-1: oklch(0.488 0.243 264.376);
 	--chart-2: oklch(0.696 0.17 162.48);
 	--chart-3: oklch(0.769 0.188 70.08);
 	--chart-4: oklch(0.627 0.265 303.9);
 	--chart-5: oklch(0.645 0.246 16.439);
-	--sidebar: #0a0a0a;
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: #7c3aed;
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: #262626;
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: #262626;
-	--sidebar-ring: #7c3aed;
+	--sidebar: #09090b;
+	--sidebar-foreground: #FAFAFA;
+	--sidebar-primary: #FFE500;
+	--sidebar-primary-foreground: #000000;
+	--sidebar-accent: #27272a;
+	--sidebar-accent-foreground: #FAFAFA;
+	--sidebar-border: #27272a;
+	--sidebar-ring: #FFE500;
 }
 
 @layer base {
@@ -125,6 +125,15 @@
   body {
     @apply bg-background text-foreground;
 	}
+}
+
+/* Custom Utilities for Design System */
+.glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+.glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/5;
 }
 
 @keyframes pulse-glow {

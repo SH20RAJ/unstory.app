@@ -38,10 +38,20 @@ export default function MainLayout({
               Chat
             </Button>
           </Link>
+          <Link href="/dating">
+            <Button variant="ghost" className="w-full justify-start text-base font-medium px-4 py-3 hover:bg-pink-500/10 hover:text-pink-500 transition-colors">
+              Dating 💘
+            </Button>
+          </Link>
           <Link href="/profile">
             <Button variant="ghost" className="w-full justify-start">
               Profile
             </Button>
+          </Link>
+          <Link href="/features">
+             <Button variant="ghost" className="w-full justify-start text-muted-foreground hover:text-foreground text-sm mt-4">
+               ✨ All Features
+             </Button>
           </Link>
         </nav>
         <div className="mt-auto p-4 border-t">
