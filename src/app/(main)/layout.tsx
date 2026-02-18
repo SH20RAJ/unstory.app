@@ -33,6 +33,11 @@ export default function MainLayout({
               Connect
             </Button>
           </Link>
+          <Link href="/chat">
+            <Button variant="ghost" className="w-full justify-start">
+              Chat
+            </Button>
+          </Link>
           <Link href="/profile">
             <Button variant="ghost" className="w-full justify-start">
               Profile
@@ -61,6 +66,9 @@ export default function MainLayout({
          </Link>
          <Link href="/connect">
            <Button variant="ghost" size="icon">C</Button>
+         </Link>
+         <Link href="/chat">
+           <Button variant="ghost" size="icon">M</Button>
          </Link>
          <Link href="/profile">
            <Button variant="ghost" size="icon">P</Button>
