@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { createActivity } from "@/actions/activities";
 
 export default function CreateActivityPage() {
   return (
@@ -12,15 +13,15 @@ export default function CreateActivityPage() {
         <p className="text-muted-foreground">Start something new on campus.</p>
       </div>
 
-      <form className="flex flex-col gap-6">
+      <form action={createActivity} className="flex flex-col gap-6">
         <div className="space-y-2">
           <Label htmlFor="title">Activity Title</Label>
-          <Input id="title" placeholder="e.g. Midnight Coding Session" />
+          <Input id="title" name="title" placeholder="e.g. Midnight Coding Session" required />
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="type">Type</Label>
-          <Select>
+          <Select name="type" required>
             <SelectTrigger>
               <SelectValue placeholder="Select type" />
             </SelectTrigger>
@@ -36,26 +37,26 @@ export default function CreateActivityPage() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="date">Date</Label>
-            <Input id="date" type="date" />
+            <Input id="date" name="date" type="date" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="time">Time</Label>
-            <Input id="time" type="time" />
+            <Input id="time" name="time" type="time" required />
           </div>
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="location">Location</Label>
-          <Input id="location" placeholder="e.g. Library, Café" />
+          <Input id="location" name="location" placeholder="e.g. Library, Café" required />
         </div>
 
         <div className="space-y-2">
           <Label htmlFor="description">Description</Label>
-          <Textarea id="description" placeholder="What's the plan?" />
+          <Textarea id="description" name="description" placeholder="What's the plan?" />
         </div>
 
         <div className="pt-4">
-          <Button size="lg" className="w-full">Create Activity</Button>
+          <Button type="submit" size="lg" className="w-full">Create Activity</Button>
         </div>
       </form>
     </div>

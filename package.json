@@ -16,6 +16,8 @@
 		"@base-ui/react": "^1.2.0",
 		"@hookform/resolvers": "^5.2.2",
 		"@opennextjs/cloudflare": "^1.15.1",
+		"@stackframe/stack": "^2.8.68",
+		"@supabase/supabase-js": "^2.96.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"cmdk": "^1.1.1",
