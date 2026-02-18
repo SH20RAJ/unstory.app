@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { stackClientApp } from "../../stack/client";
-import { StackTheme } from "@stackframe/stack";
+import Link from "next/link";
 
 export default function MainLayout({
   children,
@@ -14,21 +13,31 @@ export default function MainLayout({
           <span className="text-lg font-bold">Unistory</span>
         </div>
         <nav className="flex flex-col gap-4 px-2 py-4">
-          <Button variant="ghost" className="justify-start">
-            Home
-          </Button>
-          <Button variant="ghost" className="justify-start">
-            Events
-          </Button>
-          <Button variant="ghost" className="justify-start">
-            Create (+)
-          </Button>
-          <Button variant="ghost" className="justify-start">
-            Connect
-          </Button>
-          <Button variant="ghost" className="justify-start">
-            Profile
-          </Button>
+          <Link href="/home">
+            <Button variant="ghost" className="w-full justify-start">
+              Home
+            </Button>
+          </Link>
+          <Link href="/events">
+            <Button variant="ghost" className="w-full justify-start">
+              Events
+            </Button>
+          </Link>
+          <Link href="/create">
+            <Button variant="ghost" className="w-full justify-start">
+              Create (+)
+            </Button>
+          </Link>
+          <Link href="/connect">
+            <Button variant="ghost" className="w-full justify-start">
+              Connect
+            </Button>
+          </Link>
+          <Link href="/profile">
+            <Button variant="ghost" className="w-full justify-start">
+              Profile
+            </Button>
+          </Link>
         </nav>
         <div className="mt-auto p-4 border-t">
           {/* User Profile / Stack Auth User Button could go here */}
@@ -41,11 +50,21 @@ export default function MainLayout({
 
        {/* Mobile Bottom Nav */}
        <nav className="fixed bottom-0 left-0 right-0 z-50 flex h-16 items-center justify-around border-t bg-background px-4 sm:hidden">
-         <Button variant="ghost" size="icon">H</Button>
-         <Button variant="ghost" size="icon">E</Button>
-         <Button variant="default" size="icon" className="rounded-full shadow-lg">+</Button>
-         <Button variant="ghost" size="icon">C</Button>
-         <Button variant="ghost" size="icon">P</Button>
+         <Link href="/home">
+           <Button variant="ghost" size="icon">H</Button>
+         </Link>
+         <Link href="/events">
+           <Button variant="ghost" size="icon">E</Button>
+         </Link>
+         <Link href="/create">
+           <Button variant="default" size="icon" className="rounded-full shadow-lg">+</Button>
+         </Link>
+         <Link href="/connect">
+           <Button variant="ghost" size="icon">C</Button>
+         </Link>
+         <Link href="/profile">
+           <Button variant="ghost" size="icon">P</Button>
+         </Link>
        </nav>
     </div>
   );
