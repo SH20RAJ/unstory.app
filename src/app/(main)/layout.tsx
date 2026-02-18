@@ -8,33 +8,33 @@ export default function MainLayout({
 }) {
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40 md:flex-row">
-      <aside className="fixed inset-y-0 left-0 z-10 hidden w-64 flex-col border-r bg-background sm:flex">
-        <div className="flex h-16 items-center border-b px-6">
-          <span className="text-lg font-bold">Unistory</span>
+      <aside className="fixed inset-y-0 left-0 z-10 hidden w-64 flex-col border-r border-border/40 bg-background/80 backdrop-blur-xl sm:flex transition-all duration-300">
+        <div className="flex h-16 items-center border-b border-border/40 px-6">
+          <span className="text-xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">Unistory</span>
         </div>
-        <nav className="flex flex-col gap-4 px-2 py-4">
+        <nav className="flex flex-col gap-2 px-3 py-6">
           <Link href="/home">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-full justify-start text-base font-medium px-4 py-3 hover:bg-primary/10 hover:text-primary transition-colors">
               Home
             </Button>
           </Link>
           <Link href="/events">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-full justify-start text-base font-medium px-4 py-3 hover:bg-primary/10 hover:text-primary transition-colors">
               Events
             </Button>
           </Link>
           <Link href="/create">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="outline" className="w-full justify-start text-base font-medium px-4 py-3 border-primary/20 text-primary hover:bg-primary/10 hover:text-primary transition-colors my-2 bg-primary/5">
               Create (+)
             </Button>
           </Link>
           <Link href="/connect">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-full justify-start text-base font-medium px-4 py-3 hover:bg-primary/10 hover:text-primary transition-colors">
               Connect
             </Button>
           </Link>
           <Link href="/chat">
-            <Button variant="ghost" className="w-full justify-start">
+            <Button variant="ghost" className="w-full justify-start text-base font-medium px-4 py-3 hover:bg-primary/10 hover:text-primary transition-colors">
               Chat
             </Button>
           </Link>
