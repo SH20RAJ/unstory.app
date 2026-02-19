@@ -1,5 +1,4 @@
-"use client";
-
+import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -24,8 +23,8 @@ export function ProfileSidebar() {
              <div className="relative z-10 flex flex-col items-center mt-4">
                   <div className="relative">
                       <Avatar className="h-20 w-20 border-4 border-[#121212] shadow-2xl">
-                          <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>RM</AvatarFallback>
+                          <AvatarImage src={user.avatar} />
+                          <AvatarFallback>{user.name[0]}</AvatarFallback>
                       </Avatar>
                       <div className="absolute bottom-1 right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-[#121212]" />
                   </div>
@@ -41,17 +40,18 @@ export function ProfileSidebar() {
                       </div>
                   </div>
 
-                  <h2 className="text-xl font-bold text-white mt-2">Shaswat Raj</h2>
-                  <p className="text-white/40 text-sm">@sh20raj</p>
+                  <h2 className="text-xl font-bold text-white mt-2">{user.name}</h2>
+                  <p className="text-white/40 text-sm">@{user.username}</p>
 
                   <p className="text-white/80 text-sm mt-4 leading-relaxed">
-                      💻 CS Undergrad @ BIT Mesra. <br/>
-                      Building tools for the future. 🚀
+                      {user.bio}
                   </p>
 
-                  <Button className="w-full mt-6 bg-white/5 hover:bg-white/10 text-white rounded-xl h-12 border border-white/5">
-                      View Profile
-                  </Button>
+                  <Link href="/profile" className="w-full">
+                    <Button className="w-full mt-6 bg-white/5 hover:bg-white/10 text-white rounded-xl h-12 border border-white/5">
+                        View Profile
+                    </Button>
+                  </Link>
              </div>
         </div>
 
@@ -72,25 +72,31 @@ export function ProfileSidebar() {
              <div className="flex items-center justify-between">
                 <h3 className="text-white font-semibold text-lg">My Clubs</h3>
                 <div className="flex gap-2">
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Search className="h-4 w-4"/></Button>
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Plus className="h-4 w-4"/></Button>
+                    <Link href="/connect">
+                        <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Search className="h-4 w-4"/></Button>
+                    </Link>
+                    <Link href="/create">
+                        <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Plus className="h-4 w-4"/></Button>
+                    </Link>
                 </div>
              </div>
              
              <div className="space-y-3">
                  {COMMUNITIES.map((comm) => (
-                     <div key={comm.name} className="flex items-center gap-3 p-3 rounded-2xl bg-[#121212] hover:bg-[#1A1A1A] transition-colors group cursor-pointer border border-white/5">
-                         <div className={`h-10 w-10 rounded-full ${comm.image} flex items-center justify-center text-white font-bold opacity-80 group-hover:opacity-100`}>
-                             {comm.name[0]}
-                         </div>
-                         <div className="flex flex-col">
-                             <span className="text-white text-sm font-medium">{comm.name}</span>
-                             <span className="text-white/40 text-xs flex items-center gap-1">
-                                 <span className="h-1.5 w-1.5 rounded-full bg-[#FFE500]" />
-                                 {comm.count} members
-                             </span>
-                         </div>
-                     </div>
+                     <Link key={comm.name} href={`/community/${comm.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <div className="flex items-center gap-3 p-3 rounded-2xl bg-[#121212] hover:bg-[#1A1A1A] transition-colors group cursor-pointer border border-white/5 mb-3">
+                            <div className={`h-10 w-10 rounded-full ${comm.image} flex items-center justify-center text-white font-bold opacity-80 group-hover:opacity-100`}>
+                                {comm.name[0]}
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-white text-sm font-medium">{comm.name}</span>
+                                <span className="text-white/40 text-xs flex items-center gap-1">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-[#FFE500]" />
+                                    {comm.count} members
+                                </span>
+                            </div>
+                        </div>
+                     </Link>
                  ))}
              </div>
         </div>

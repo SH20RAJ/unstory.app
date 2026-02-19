@@ -1,68 +1,36 @@
-import { getRemainingCrushCount, getSecretCrushes } from "@/actions/dating";
-import { ProfileCard } from "@/components/feed/ProfileCard";
-import { MOCK_PROFILES } from "@/lib/mock-data";
-import { Heart } from "lucide-react";
+"use client";
+
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { SwipeDeck } from "@/components/dating/SwipeDeck";
+import { DATING_PROFILES } from "@db/dating";
+import { Heart, SlidersHorizontal } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export default async function DatingPage() {
-    const crushes = await getSecretCrushes();
-    const remaining = await getRemainingCrushCount();
-
-    // Map crush IDs to profiles (using mock data for info)
-    // In a real app, we would fetch these profiles from DB
-    const crushedProfiles = crushes.map((crush: { crush_id: string }) => {
-        // Find by ID or Name (fallback since we used name as ID in ProfileCard previously)
-        // Adjust logic to match how we stored it. 
-        // In ProfileCard we passed `profile.name` as ID.
-        return MOCK_PROFILES.find(p => p.name === crush.crush_id) || {
-            name: crush.crush_id,
-            age: 0,
-            university: "Unknown",
-            major: "Unknown",
-            bio: "Profile not found",
-            interests: [],
-            image: "bg-gray-500"
-        };
-    });
-
+export default function DatingPage() {
   return (
     <DashboardLayout>
-      <div className="flex flex-col gap-8">
-        
-        <div className="flex flex-col gap-2">
-          <h1 className="text-3xl font-bold tracking-tight bg-linear-to-r from-pink-500 to-rose-600 bg-clip-text text-transparent w-fit">
-              Secret Crushes
-          </h1>
-          <p className="text-muted-foreground">
-              Add up to 5 people securely. If they add you back, it&apos;s a match! 🤫
-          </p>
-        </div>
+       <div className="flex flex-col h-[calc(100vh-80px)] md:h-screen max-w-2xl mx-auto w-full px-4 py-6">
+           {/* Header */}
+           <div className="flex items-center justify-between mb-6">
+               <div className="flex items-center gap-2">
+                   <div className="h-10 w-10 rounded-full bg-gradient-to-tr from-[#FF6B6B] to-[#FF8E53] flex items-center justify-center shadow-lg shadow-orange-500/20">
+                        <Heart className="h-5 w-5 text-white fill-white" />
+                   </div>
+                   <div>
+                       <h1 className="text-2xl font-bold text-white">Campus Dating</h1>
+                       <p className="text-xs text-white/50">Find connections nearby</p>
+                   </div>
+               </div>
+               <Button variant="outline" size="icon" className="rounded-full border-white/10 hover:bg-white/5 text-white">
+                   <SlidersHorizontal className="h-4 w-4" />
+               </Button>
+           </div>
 
-        <div className="flex items-center gap-4 bg-muted/30 p-4 rounded-2xl border border-border/50">
-            <div className="h-12 w-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-500">
-                <Heart className="h-6 w-6" />
-            </div>
-            <div className="flex flex-col">
-                <span className="font-semibold text-lg">{remaining} slots remaining</span>
-                <span className="text-xs text-muted-foreground">Use them wisely!</span>
-            </div>
-        </div>
-
-        {crushedProfiles.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-                {crushedProfiles.map((profile, i) => (
-                    <ProfileCard key={i} profile={profile} />
-                ))}
-            </div>
-        ) : (
-            <div className="flex flex-col items-center justify-center py-12 text-center opacity-60">
-                <Heart className="h-16 w-16 text-muted-foreground/20 mb-4" />
-                <h3 className="text-xl font-semibold">No crushes yet</h3>
-                <p className="text-sm">Go to Connect or Home to find people!</p>
-            </div>
-        )}
-
-      </div>
+           {/* Swipe Area */}
+           <div className="flex-1 flex flex-col justify-center pb-20">
+               <SwipeDeck profiles={DATING_PROFILES} />
+           </div>
+       </div>
     </DashboardLayout>
   );
 }
