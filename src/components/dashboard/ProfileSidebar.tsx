@@ -5,14 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Search, Plus } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-const communities = [
-  { name: "Coding Club", count: 142, image: "bg-blue-600" },
-  { name: "Debate Soc", count: 89, image: "bg-red-500" },
-  { name: "Robotics", count: 56, image: "bg-purple-500" },
-];
+import { CURRENT_USER, COMMUNITIES } from "../../../db/users";
 
 export function ProfileSidebar() {
+  const user = CURRENT_USER;
+
+  if (!user) return null;
   return (
     <div className="flex flex-col gap-6 h-full">
         {/* Profile Stats Card (Yellow Arcs) */}
@@ -80,7 +78,7 @@ export function ProfileSidebar() {
              </div>
              
              <div className="space-y-3">
-                 {communities.map((comm) => (
+                 {COMMUNITIES.map((comm) => (
                      <div key={comm.name} className="flex items-center gap-3 p-3 rounded-2xl bg-[#121212] hover:bg-[#1A1A1A] transition-colors group cursor-pointer border border-white/5">
                          <div className={`h-10 w-10 rounded-full ${comm.image} flex items-center justify-center text-white font-bold opacity-80 group-hover:opacity-100`}>
                              {comm.name[0]}

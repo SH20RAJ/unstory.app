@@ -6,24 +6,7 @@ import { ChatLayout } from "@/components/chat/ChatLayout";
 import { ContactList } from "@/components/chat/ContactList";
 import { ChatWindow } from "@/components/chat/ChatWindow";
 
-// Mock Data
-const CONTACTS = [
-  { id: "1", name: "Tanya Sharma", avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d", lastMessage: "See you at the event!", time: "2m", unreadCount: 2, online: true },
-  { id: "2", name: "Rohan Das", avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d", lastMessage: "Can you send me the notes?", time: "1h", online: false },
-  { id: "3", name: "Aditya Kumar", avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d", lastMessage: "The project looks great.", time: "3h", online: true },
-];
-
-const MESSAGES = {
-    "1": [
-        { id: "m1", content: "Hey! Are you going to the GDSC workshop?", senderId: "other", time: "10:30 AM", status: "read" },
-        { id: "m2", content: "Yes, definitely! It starts at 5 PM right?", senderId: "me", time: "10:32 AM", status: "read" },
-        { id: "m3", content: "See you at the event!", senderId: "other", time: "10:33 AM", status: "sent" }
-    ],
-    "2": [
-        { id: "m1", content: "Bro, did you attend the lecture?", senderId: "other", time: "Yesterday", status: "read" },
-        { id: "m2", content: "Can you send me the notes?", senderId: "other", time: "Yesterday", status: "read" }
-    ]
-} as const;
+import { CONTACTS, MESSAGES } from "../../../../db/chats";
 
 export default function ChatPage() {
   const [selectedId, setSelectedId] = useState("1");

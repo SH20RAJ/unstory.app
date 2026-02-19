@@ -2,27 +2,12 @@
 
 import { cn } from "@/lib/utils";
 
-interface Story {
-  name: string;
-  img: string;
-  isLive?: boolean;
-}
-
-const stories: Story[] = [
-  { name: "Your Story", img: "bg-zinc-800", isLive: false },
-  { name: "GDSC", img: "bg-blue-500", isLive: true },
-  { name: "P-Soc", img: "bg-purple-600", isLive: true },
-  { name: "IEEE", img: "bg-blue-700" },
-  { name: "Rotaract", img: "bg-pink-600" },
-  { name: "E-Cell", img: "bg-orange-500" },
-  { name: "Robotics", img: "bg-red-600" },
-  { name: "Audio", img: "bg-yellow-500" },
-];
+import { STORIES } from "../../../../db/stories";
 
 export function StoryRail() {
   return (
     <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-      {stories.map((story) => (
+      {STORIES.map((story) => (
         <div 
           key={story.name} 
           className="flex flex-col items-center gap-2 cursor-pointer group min-w-[70px]"

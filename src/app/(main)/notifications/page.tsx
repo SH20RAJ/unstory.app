@@ -6,47 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, MessageCircle, UserPlus, Bell, ChevronRight, Zap } from "lucide-react";
 import Link from "next/link";
 
-const NOTIFICATIONS = [
-  {
-     id: 1,
-     type: "like",
-     user: { name: "Rohan Das", avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d" },
-     content: "liked your post.",
-     time: "2m ago",
-     read: false
-  },
-  {
-      id: 2,
-      type: "comment",
-      user: { name: "Tanya Sharma", avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d" },
-      content: "commented: \"This is absolutely amazing! 🔥\"",
-      time: "15m ago",
-      read: false
-  },
-  {
-      id: 3,
-      type: "connection",
-      user: { name: "Aditya Kumar", avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d" },
-      content: "sent you a connection request.",
-      time: "1h ago",
-      read: true
-  },
-  {
-      id: 4,
-      type: "system",
-      content: "Welcome to the new Unstory Dashboard! 🚀",
-      time: "1d ago",
-      read: true
-  },
-  {
-      id: 5,
-      type: "crush",
-      user: { name: "Someone", avatar: "" }, // Anonymous
-      content: "added you as a secret crush! 🤫",
-      time: "2d ago",
-      read: true
-  }
-];
+import { NOTIFICATIONS } from "../../../../db/notifications";
 
 export default function NotificationsPage() {
   return (

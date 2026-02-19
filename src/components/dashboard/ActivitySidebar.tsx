@@ -3,56 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
-
-const activities = [
-  {
-    id: 1,
-    user: "Library Admin",
-    avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=Library",
-    action: "Reminder: 'Intro to Algorithms' is due tomorrow.",
-    time: "10 mins ago",
-    type: "alert",
-    highlight: true,
-  },
-  {
-    id: 2,
-    user: "Exam Cell",
-    avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=Exam",
-    action: "Mid-semester schedule released.",
-    time: "2 hrs ago",
-    type: "info",
-    status: "View",
-    theme: "yellow"
-  },
-   {
-    id: 3,
-    user: "GDSC Team",
-    avatar: "https://yt3.googleusercontent.com/ytc/AIdro_nK5E6t7j6f5yX5Q55g0y5x5Q55g0y5x5Q55g0=s900-c-k-c0x00ffffff-no-rj",
-    action: "posted a new event: Solution Challenge.",
-    time: "5 hrs ago",
-    type: "event_invite",
-    status: "Register",
-    theme: "dark"
-  },
-  {
-    id: 4,
-    user: "Hostel Warden",
-    avatar: "https://i.pravatar.cc/150?u=4",
-    action: "Mess menu updated for next week.",
-    time: "8 hrs ago",
-    type: "update",
-    status: "Check",
-    theme: "yellow"
-  },
-   {
-    id: 5,
-    user: "Class Rep (CR)",
-    avatar: "https://i.pravatar.cc/150?u=5",
-    action: "CS-301 class cancelled today.",
-    time: "12 hrs ago",
-    type: "alert",
-  }
-];
+import { ACTIVITIES } from "../../../db/activities";
 
 export function ActivitySidebar() {
   return (
@@ -63,7 +14,7 @@ export function ActivitySidebar() {
              {/* Timeline Line (Conceptual) */}
              <div className="absolute left-6 top-4 bottom-4 w-px bg-white/5" />
 
-             {activities.map((item) => (
+             {ACTIVITIES.map((item) => (
                  <div key={item.id} className="relative flex flex-col gap-3 p-4 rounded-2xl bg-[#1A1A1A] border border-white/5 hover:bg-[#202020] transition-colors mb-4 last:mb-0">
                      <div className="flex items-start justify-between">
                          <div className="flex items-start gap-3">

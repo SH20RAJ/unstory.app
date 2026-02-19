@@ -11,8 +11,11 @@ import {
   Search,
 } from "lucide-react";
 
+import { CURRENT_USER } from "../../../db/users";
+
 export function MobileNav() {
   const pathname = usePathname();
+  const user = CURRENT_USER;
   const isActive = (path: string) => pathname === path;
 
   return (
@@ -46,8 +49,8 @@ export function MobileNav() {
         <Link href="/profile" className="w-full h-full">
             <Button variant="ghost" className={cn("flex flex-col items-center justify-center gap-1 h-full w-full rounded-none hover:bg-white/5", isActive("/profile") ? "text-[#FFE500]" : "text-white/60")}>
                 <Avatar className={cn("h-6 w-6 border", isActive("/profile") ? "border-[#FFE500]" : "border-white/10")}>
-                    <AvatarImage src="https://github.com/shadcn.png" />
-                    <AvatarFallback>ME</AvatarFallback>
+                    <AvatarImage src={user?.avatar} />
+                    <AvatarFallback>{user?.name[0]}</AvatarFallback>
                 </Avatar>
             </Button>
         </Link>

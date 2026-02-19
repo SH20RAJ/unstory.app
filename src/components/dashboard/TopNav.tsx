@@ -15,8 +15,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
+import { CURRENT_USER } from "../../../db/users";
+
 export function TopNav() {
   const pathname = usePathname();
+  const user = CURRENT_USER;
 
   const isActive = (path: string) => pathname === path;
 
@@ -73,10 +76,10 @@ export function TopNav() {
              <Link href="/profile">
                  <Button variant="ghost" className="h-10 px-2 rounded-full hover:bg-white/5 gap-2 text-white/80">
                       <Avatar className="h-8 w-8 border border-white/10">
-                          <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>RM</AvatarFallback>
+                          <AvatarImage src={user?.avatar} />
+                          <AvatarFallback>{user?.name[0]}</AvatarFallback>
                       </Avatar>
-                      <span className="text-sm font-medium hidden md:inline">Shaswat Raj</span>
+                      <span className="text-sm font-medium hidden md:inline">{user?.name}</span>
                       <ChevronDown className="h-4 w-4 text-white/40" />
                  </Button>
              </Link>

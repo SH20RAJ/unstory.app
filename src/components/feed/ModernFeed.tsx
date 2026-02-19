@@ -21,52 +21,8 @@ interface FeedItem {
   featured?: boolean;
 }
 
-const mockFeed: FeedItem[] = [
-  {
-    id: 1,
-    type: "image",
-    image: "bg-linear-to-b from-purple-500 to-indigo-900",
-    author: { name: "Alexander", university: "Uni One" },
-    metrics: { likes: 16 },
-    featured: true
-  },
-  {
-    id: 2,
-    type: "video",
-    image: "bg-linear-to-b from-neutral-800 to-neutral-900",
-    author: { name: "Charlotte", university: "Tech State" },
-    metrics: { likes: 8 }
-  },
-  {
-    id: 3,
-    type: "image",
-    image: "bg-linear-to-br from-emerald-800 to-teal-900",
-    author: { name: "Isabella", university: "Campus X" },
-    metrics: { likes: 24 }
-  },
-  {
-    id: 4,
-    type: "image",
-    image: "bg-linear-to-tr from-rose-900 to-orange-800",
-    author: { name: "Daniel", university: "Modern U" },
-    metrics: { likes: 12 }
-  },
-  {
-    id: 5,
-    type: "image",
-    image: "bg-linear-to-b from-blue-900 to-slate-900",
-    author: { name: "Jonathan", university: "Uni One" },
-    metrics: { likes: 4 }
-  },
-   {
-    id: 6,
-    type: "image",
-    image: "bg-linear-to-br from-amber-700 to-orange-900",
-    author: { name: "Katherine", university: "Tech State" },
-    metrics: { likes: 122 },
-    featured: true
-  }
-];
+import { cn } from "@/lib/utils";
+import { EXPLORE_ITEMS } from "../../../db/explore";
 
 export function ModernFeed() {
   const [activeTab, setActiveTab] = useState<"For You" | "Popular">("For You");
@@ -95,9 +51,10 @@ export function ModernFeed() {
             </div>
 
             {/* Masonry Grid */}
-            <div className="columns-1 sm:columns-2 gap-6 space-y-6 px-2">
-                {mockFeed.map((item) => (
-                    <div key={item.id} className="relative break-inside-avoid rounded-[32px] overflow-hidden group bg-neutral-900/50 border border-white/5">
+            <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+            {EXPLORE_ITEMS.map((item) => (
+                <div key={item.id} className="relative group break-inside-avoid rounded-xl overflow-hidden cursor-pointer">
+                    <div className={cn("relative w-full bg-white/5", item.aspect)}>
                         
                         {/* Image Placeholder */}
                         <div className={`w-full ${item.featured ? 'aspect-[3/4]' : 'aspect-[4/5]'} ${item.image} transition-transform duration-700 group-hover:scale-105`} />
@@ -136,7 +93,8 @@ export function ModernFeed() {
                             </Button>
                         </div>
                     </div>
-                ))}
+                </div>
+            ))}
             </div>
         </div>
 
