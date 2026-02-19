@@ -3,9 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight, Heart, Send } from "lucide-react";
+import { X, Heart, Send } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 // Mock Story Data
 export interface Story {
@@ -43,6 +42,15 @@ export function StoryViewer({ stories, initialStoryIndex = 0, isOpen, onClose }:
         }
     }, [isOpen, initialStoryIndex]);
 
+    const handleNext = useCallback(() => {
+        if (currentIndex < stories.length - 1) {
+            setCurrentIndex(prev => prev + 1);
+            setProgress(0);
+        } else {
+            onClose();
+        }
+    }, [currentIndex, stories.length, onClose]);
+
     // Progress Timer
     useEffect(() => {
         if (!isOpen || isPaused) return;
@@ -62,16 +70,8 @@ export function StoryViewer({ stories, initialStoryIndex = 0, isOpen, onClose }:
         }, intervalTime);
 
         return () => clearInterval(timer);
-    }, [isOpen, isPaused, currentIndex, currentStory]);
+    }, [isOpen, isPaused, currentIndex, currentStory, handleNext]);
 
-    const handleNext = useCallback(() => {
-        if (currentIndex < stories.length - 1) {
-            setCurrentIndex(prev => prev + 1);
-            setProgress(0);
-        } else {
-            onClose();
-        }
-    }, [currentIndex, stories.length, onClose]);
 
     const handlePrev = useCallback(() => {
         if (currentIndex > 0) {
@@ -90,7 +90,7 @@ export function StoryViewer({ stories, initialStoryIndex = 0, isOpen, onClose }:
             </div>
 
             {/* Main Content */}
-            <div className="relative w-full h-full md:w-[400px] md:h-[85vh] md:rounded-2xl overflow-hidden bg-black shadow-2xl flex flex-col">
+            <div className="relative w-full h-[100dvh] md:h-[85vh] md:w-[400px] md:rounded-2xl overflow-hidden bg-black shadow-2xl flex flex-col">
                 
                 {/* Media */}
                 <div className="absolute inset-0">
@@ -105,7 +105,7 @@ export function StoryViewer({ stories, initialStoryIndex = 0, isOpen, onClose }:
                 </div>
 
                 {/* Top Controls */}
-                <div className="relative z-10 pt-4 px-4 flex flex-col gap-2">
+                <div className="relative z-20 pt-4 px-4 flex flex-col gap-2">
                     {/* Progress Bars */}
                     <div className="flex gap-1 h-0.5 w-full">
                         {stories.map((story, idx) => (
@@ -146,7 +146,7 @@ export function StoryViewer({ stories, initialStoryIndex = 0, isOpen, onClose }:
                 </div>
 
                 {/* Navigation Overlay Areas */}
-                <div className="absolute inset-0 flex z-0">
+                <div className="absolute inset-0 flex z-10">
                     <div 
                         className="w-1/3 h-full cursor-pointer" 
                         onClick={handlePrev} 
