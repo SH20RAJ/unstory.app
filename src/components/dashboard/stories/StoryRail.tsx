@@ -9,13 +9,14 @@ interface Story {
 }
 
 const stories: Story[] = [
-  { name: "Amanda", img: "bg-red-500", isLive: true },
-  { name: "John", img: "bg-orange-500" },
-  { name: "Andrew", img: "bg-yellow-500" },
-  { name: "Rosaline", img: "bg-green-500" },
-  { name: "Mudreh", img: "bg-blue-500" },
-  { name: "Juliet", img: "bg-indigo-500" },
-  { name: "Bohdan", img: "bg-purple-500" },
+  { name: "Your Story", img: "bg-zinc-800", isLive: false },
+  { name: "GDSC", img: "bg-blue-500", isLive: true },
+  { name: "P-Soc", img: "bg-purple-600", isLive: true },
+  { name: "IEEE", img: "bg-blue-700" },
+  { name: "Rotaract", img: "bg-pink-600" },
+  { name: "E-Cell", img: "bg-orange-500" },
+  { name: "Robotics", img: "bg-red-600" },
+  { name: "Audio", img: "bg-yellow-500" },
 ];
 
 export function StoryRail() {

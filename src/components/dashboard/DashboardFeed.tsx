@@ -8,82 +8,96 @@ const posts: Post[] = [
   {
     id: 1,
     user: {
-      name: "Mudreh Kumbirai",
-      username: "@Muhadrehh",
-      avatar: "https://i.pravatar.cc/150?u=5",
+      name: "GDSC - BIT Mesra",
+      username: "@gdsc_bitm",
+      avatar: "https://yt3.googleusercontent.com/ytc/AIdro_nK5E6t7j6f5yX5Q55g0y5x5Q55g0y5x5Q55g0=s900-c-k-c0x00ffffff-no-rj",
       verified: true
     },
-    time: "1 hr ago",
-    type: "image",
-    content: "In some cases you may see a third-party client name, which indicates the Tweet came from a non-Twitter application.",
-    image: "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?q=80&w=1000&auto=format&fit=crop",
+    time: "2 hrs ago",
+    type: "event",
+    content: "📢 The biggest tech event of the year is here! Join us for the Solution Challenge Info Session. 🚀\n\nLearn how to build solutions for local problems using Google technologies.",
+    event: {
+      title: "Solution Challenge 2026 Info Session",
+      date: "Wed, Feb 24 • 6:00 PM",
+      location: "Cat Hall / Online",
+      attendees: 342
+    },
     likes: 1240,
     comments: 45,
-    shares: 12
+    shares: 120
   },
   {
     id: 2,
     user: {
-      name: "Design Team",
-      username: "@designers",
-      avatar: "https://github.com/shadcn.png",
-      verified: true
-    },
-    time: "2 hrs ago",
-    type: "poll",
-    content: "Which tool do you use for prototyping?",
-    poll: {
-      question: "Which tool do you use for prototyping?",
-      options: [
-        { label: "Figma", votes: 450, percentage: 70 },
-        { label: "Adobe XD", votes: 120, percentage: 20 },
-        { label: "Sketch", votes: 60, percentage: 10 },
-      ],
-      totalVotes: 630
-    },
-    likes: 340,
-    comments: 89,
-    shares: 5
-  },
-   {
-    id: 3,
-    user: {
-      name: "Campus Events",
-      username: "@events_hq",
-      avatar: "https://i.pravatar.cc/150?u=8",
-      verified: true
+      name: "Campus Confessions",
+      username: "@bit_confessions",
+      avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=confess",
     },
     time: "4 hrs ago",
-    type: "event",
-    content: "Join us for the annual tech hackathon! 🚀",
-    event: {
-      title: "Spring Hackathon 2026",
-      date: "Sat, Mar 15 • 10:00 AM",
-      location: "Student Center Hall B",
-      attendees: 142
+    type: "text",
+    content: "To the guy playing guitar in the inner circle last night... your rendition of 'Yellow' was magical. 🎸✨ Please come back tonight!",
+    likes: 856,
+    comments: 124,
+    shares: 45
+  },
+  {
+    id: 3,
+    user: {
+      name: "Placement Cell",
+      username: "@tnp_bitm",
+      avatar: "https://api.dicebear.com/7.x/initials/svg?seed=PC",
+      verified: true
     },
-    likes: 850,
-    comments: 120,
-    shares: 200
+    time: "5 hrs ago",
+    type: "article",
+    content: "Placement Season 2026 Kickoff! 🎓 Here are the updated guidelines and eligible branches for Day 1 companies.",
+    article: {
+      title: "Placement Policy & Guidelines 2026",
+      summary: "Comprehensive guide for final year students regarding registration, eligibility criteria, and code of conduct for the upcoming placement drive.",
+      readTime: "8 min read"
+    },
+    likes: 2100,
+    comments: 89,
+    shares: 560
   },
   {
     id: 4,
     user: {
-      name: "Sarah Chen",
-      username: "@sarah_writes",
-      avatar: "https://i.pravatar.cc/150?u=9",
+      name: "Unstory Polls",
+      username: "@polls_daily",
+      avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=polls",
     },
     time: "6 hrs ago",
-    type: "article",
-    content: "Just published my thoughts on the future of AI in education.",
-    article: {
-      title: "The AI Classroom: A New Era",
-      summary: "How artificial intelligence is reshaping personalized learning and what it means for students and teachers alike.",
-      readTime: "5 min read"
+    type: "poll",
+    content: "Which canteen serves the best samosas on campus? 🥟 Let's settle this once and for all.",
+    poll: {
+      question: "Best Samosa Spot?",
+      options: [
+        { label: "Sharma Canteen", votes: 850, percentage: 45 },
+        { label: "IC Arena", votes: 620, percentage: 33 },
+        { label: "Hostel 6 Night Canteen", votes: 410, percentage: 22 },
+      ],
+      totalVotes: 1880
     },
-    likes: 420,
-    comments: 34,
-    shares: 18
+    likes: 560,
+    comments: 230,
+    shares: 89
+  },
+  {
+    id: 5,
+    user: {
+      name: "Photography Club",
+      username: "@psoc_bit",
+      avatar: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80",
+      verified: true
+    },
+    time: "8 hrs ago",
+    type: "image",
+    content: "Golden hour at the Main Building. 🌅 There's nothing quite like our campus in the winter styling.",
+    image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+    likes: 3400,
+    comments: 112,
+    shares: 400
   }
 ];
 
