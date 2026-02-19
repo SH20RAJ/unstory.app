@@ -44,7 +44,7 @@ export function ProfileSidebar() {
                   </div>
 
                   <h2 className="text-xl font-bold text-white mt-2">Shaswat Raj</h2>
-                  <p className="text-white/40 text-sm">@rohan_dev</p>
+                  <p className="text-white/40 text-sm">@sh20raj</p>
 
                   <p className="text-white/80 text-sm mt-4 leading-relaxed">
                       💻 CS Undergrad @ BIT Mesra. <br/>

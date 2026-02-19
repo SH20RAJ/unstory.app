@@ -137,6 +137,10 @@ export default async function LandingPage() {
       </section>
 
       <footer className="py-8 text-center text-sm text-muted-foreground border-t border-border/10">
+        <div className="flex justify-center gap-6 mb-4">
+             <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+             <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+        </div>
         <p>&copy; {new Date().getFullYear()} Unistory. Built for students.</p>
       </footer>
     </div>

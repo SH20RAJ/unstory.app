@@ -76,7 +76,7 @@ export function TopNav() {
                           <AvatarImage src="https://github.com/shadcn.png" />
                           <AvatarFallback>RM</AvatarFallback>
                       </Avatar>
-                      <span className="text-sm font-medium hidden md:inline">Rohan Mehta</span>
+                      <span className="text-sm font-medium hidden md:inline">Shaswat Raj</span>
                       <ChevronDown className="h-4 w-4 text-white/40" />
                  </Button>
              </Link>

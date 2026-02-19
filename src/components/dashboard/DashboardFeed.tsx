@@ -11,7 +11,8 @@ const posts: Post[] = [
       name: "GDSC - BIT Mesra",
       username: "@gdsc_bitm",
       avatar: "https://yt3.googleusercontent.com/ytc/AIdro_nK5E6t7j6f5yX5Q55g0y5x5Q55g0y5x5Q55g0=s900-c-k-c0x00ffffff-no-rj",
-      verified: true
+      verified: true,
+      collegeSafeName: "BIT Mesra"
     },
     time: "2 hrs ago",
     type: "event",
@@ -32,6 +33,7 @@ const posts: Post[] = [
       name: "Campus Confessions",
       username: "@bit_confessions",
       avatar: "https://api.dicebear.com/7.x/shapes/svg?seed=confess",
+      collegeSafeName: "BIT Mesra"
     },
     time: "4 hrs ago",
     type: "text",
@@ -46,7 +48,8 @@ const posts: Post[] = [
       name: "Placement Cell",
       username: "@tnp_bitm",
       avatar: "https://api.dicebear.com/7.x/initials/svg?seed=PC",
-      verified: true
+      verified: true,
+      collegeSafeName: "BIT Mesra"
     },
     time: "5 hrs ago",
     type: "article",
@@ -66,6 +69,7 @@ const posts: Post[] = [
       name: "Unstory Polls",
       username: "@polls_daily",
       avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=polls",
+      collegeSafeName: "BIT Mesra"
     },
     time: "6 hrs ago",
     type: "poll",
