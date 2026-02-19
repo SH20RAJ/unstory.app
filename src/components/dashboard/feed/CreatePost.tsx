@@ -31,6 +31,7 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { CURRENT_USER } from "@db/users";
 
 export function CreatePost() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -151,8 +152,8 @@ export function CreatePost() {
       <div className="p-4">
         <div className="flex gap-4">
           <Avatar className="h-10 w-10 shrink-0">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>RM</AvatarFallback>
+            <AvatarImage src={CURRENT_USER?.avatar} />
+            <AvatarFallback>{CURRENT_USER?.name[0]}</AvatarFallback>
           </Avatar>
           
           <div className="flex-1 space-y-4">

@@ -4,7 +4,7 @@ import { StoryRail } from "./stories/StoryRail";
 import { CreatePost } from "./feed/CreatePost";
 import { FeedPost, Post } from "./feed/FeedPost";
 
-import { POSTS } from "../../../db/posts";
+import { POSTS } from "@db/posts";
 
 export function DashboardFeed() {
   return (

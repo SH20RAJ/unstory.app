@@ -107,7 +107,7 @@ export function FeedPost({ post, isDetailedView = false }: FeedPostProps) {
   const navigateToProfile = (e: React.MouseEvent) => {
       e.stopPropagation();
       // Using a generic profile route for now, can be /profile/[username]
-      router.push(`/profile`);
+      router.push(`/@${post.user.username}`);
   };
 
   return (

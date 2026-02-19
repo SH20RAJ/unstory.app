@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
-import { ACTIVITIES } from "../../../db/activities";
+import { ACTIVITIES } from "@db/activities";
 
 export function ActivitySidebar() {
   return (

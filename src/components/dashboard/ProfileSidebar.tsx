@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Search, Plus } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CURRENT_USER, COMMUNITIES } from "../../../db/users";
+import { CURRENT_USER, COMMUNITIES } from "@db/users";
 
 export function ProfileSidebar() {
   const user = CURRENT_USER;
