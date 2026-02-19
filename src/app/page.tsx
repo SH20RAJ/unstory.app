@@ -15,13 +15,21 @@ export default async function LandingPage() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-16 items-center justify-between px-6 border-b border-border/10">
         <div className="text-xl font-bold tracking-tight">Unstory</div>
-        <nav className="flex gap-4">
-          <Link href="/login">
-            <Button variant="ghost">Login</Button>
-          </Link>
+        <nav className="flex gap-4 items-center">
+          {user ? (
+            <>
+              <span className="text-sm text-muted-foreground">{user.displayName || user.primaryEmail}</span>
+              <Link href="/home">
+                <Button variant="ghost">Home</Button>
+              </Link>
+            </>
+          ) : (
+            <Link href="/login">
+              <Button variant="ghost">Login</Button>
+            </Link>
+          )}
         </nav>
-      </header>
-      
+      </header>      
       <Hero />
       
       {/* Stats / Trusted By */}
