@@ -1,16 +1,15 @@
-# Unistory — Campus Activity & Social Network
+# Unstory — Campus Activity & Social Network
 
-Unistory is a verified college activity network designed to help students connect through real-world interactions — events, study sessions, clubs, and shared campus life.
-Instead of traditional social media or swipe-based dating, Unistory builds a **trusted campus graph** where relationships emerge naturally from activities.
+Unstory is a verified college activity network designed to help students connect through real-world interactions — events, study sessions, clubs, and shared campus life.
+Instead of traditional social media or swipe-based dating, Unstory builds a **trusted campus graph** where relationships emerge naturally from activities.
 
 ---
 
-[PITCH.md](PITCH.md)
----
+## [PITCH.md](PITCH.md)
 
 # Overview
 
-Unistory aims to become the **operating layer for college life**, combining:
+Unstory aims to become the **operating layer for college life**, combining:
 
 - Campus activity coordination
 - Soft social discovery
@@ -338,7 +337,7 @@ Never expose secrets to client components.
 
 # Product Philosophy
 
-Unistory is not a traditional social platform.
+Unstory is not a traditional social platform.
 
 It is a **campus interaction layer** where:
 
@@ -375,4 +374,4 @@ The design avoids:
 
 # License
 
-Proprietary — Unistory Project.
+Proprietary — Unstory Project.

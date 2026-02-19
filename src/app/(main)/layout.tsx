@@ -3,7 +3,7 @@ import { TopNav } from "@/components/dashboard/TopNav";
 import { MobileNav } from "@/components/dashboard/MobileNav";
 
 export const metadata: Metadata = {
-  title: "Unistory | Dashboard",
+  title: "Unstory | Dashboard",
   description: "Your campus interaction layer.",
 };
 

@@ -61,13 +61,13 @@ export default function FeaturesPage() {
       
       <div className="flex flex-col gap-4 text-center items-center py-8">
         <Badge variant="outline" className="px-3 py-1 rounded-full text-sm font-medium border-primary/20 bg-primary/5 text-primary">
-            Unistory Features
+            Unstory Features
         </Badge>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
             Everything you need for campus life.
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl">
-            From finding events to making real connections, Unistory is the operating layer for your college experience.
+            From finding events to making real connections, Unstory is the operating layer for your college experience.
         </p>
       </div>
 
@@ -96,7 +96,7 @@ export default function FeaturesPage() {
 
        <div className="mt-12 p-8 rounded-3xl bg-linear-to-br from-primary/5 via-accent/5 to-background border border-border/50 text-center">
             <h2 className="text-2xl font-bold mb-4">Ready to jump in?</h2>
-            <p className="text-muted-foreground mb-6">Join thousands of students connecting on Unistory today.</p>
+            <p className="text-muted-foreground mb-6">Join thousands of students connecting on Unstory today.</p>
             <div className="flex justify-center gap-4">
                 <Link href="/home">
                     <Button size="lg" className="rounded-full px-8">Go to Feed</Button>

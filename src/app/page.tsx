@@ -7,14 +7,14 @@ import { redirect } from "next/navigation";
 
 export default async function LandingPage() {
   const user = await stackServerApp.getUser();
-  if (user) {
-    redirect("/home");
-  }
+//   if (user) {
+//     redirect("/home");
+//   }
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="flex h-16 items-center justify-between px-6 border-b border-border/10">
-        <div className="text-xl font-bold tracking-tight">Unistory</div>
+        <div className="text-xl font-bold tracking-tight">Unstory</div>
         <nav className="flex gap-4">
           <Link href="/login">
             <Button variant="ghost">Login</Button>
@@ -27,7 +27,7 @@ export default async function LandingPage() {
       {/* Stats / Trusted By */}
       <section className="py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 text-center">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-8">Trusted by students at</p>
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-8">Trusted by students from <span className="text-foreground font-bold">1,350+</span> colleges including</p>
             <div className="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                 {/* Placeholders for logos */}
                 <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> Uni One</div>
@@ -89,7 +89,7 @@ export default async function LandingPage() {
       <section className="py-24 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6">
              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">How Unistory works</h2>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">How Unstory works</h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto text-lg">Three simple steps to unlock your best campus life.</p>
             </div>
             
@@ -123,7 +123,7 @@ export default async function LandingPage() {
              <div className="relative z-10">
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Ready to find your people?</h2>
                 <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-                    Join thousands of students who are already using Unistory to make the most of their college years.
+                    Join thousands of students who are already using Unstory to make the most of their college years.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link href="/login">
@@ -141,7 +141,7 @@ export default async function LandingPage() {
              <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
              <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
         </div>
-        <p>&copy; {new Date().getFullYear()} Unistory. Built for students.</p>
+        <p>&copy; {new Date().getFullYear()} Unstory. Built for students.</p>
       </footer>
     </div>
   );

@@ -1,4 +1,4 @@
-Below is a **practical execution order** to start Unistory using your stack (Next.js + CF Workers + Supabase + StackAuth).
+Below is a **practical execution order** to start Unstory using your stack (Next.js + CF Workers + Supabase + StackAuth).
 Follow the sequence exactly — it avoids architecture mistakes and lets you reach a working MVP fast.
 
 ---
@@ -9,11 +9,11 @@ Do **not** start with full “social + dating + everything”.
 
 Lock V1 to:
 
-* Verified login
-* Activity feed
-* Create/join activity
-* Basic profile
-* Messaging after joining activity
+- Verified login
+- Activity feed
+- Create/join activity
+- Basic profile
+- Messaging after joining activity
 
 Write this inside `/docs/product-scope.md`.
 
@@ -30,15 +30,15 @@ If a feature does not help students meet or coordinate → not V1.
 ## Step 1 — Next.js App
 
 ```bash
-npx create-next-app@latest unistory
+npx create-next-app@latest Unstory
 ```
 
 Choose:
 
-* App Router
-* TypeScript
-* Tailwind
-* ESLint
+- App Router
+- TypeScript
+- Tailwind
+- ESLint
 
 Then structure folders:
 
@@ -81,8 +81,8 @@ middleware.ts
 
 Goal:
 
-* college email login
-* session stored server-side
+- college email login
+- session stored server-side
 
 Test:
 
@@ -111,9 +111,9 @@ messages
 
 Rules:
 
-* Enable RLS.
-* Use UUID primary keys.
-* Add created_at timestamps.
+- Enable RLS.
+- Use UUID primary keys.
+- Add created_at timestamps.
 
 Then create:
 
@@ -145,10 +145,10 @@ Then make a simple page:
 
 Minimal UI:
 
-* title
-* time
-* location
-* join button
+- title
+- time
+- location
+- join button
 
 Goal:
 Functional, not pretty.
@@ -188,8 +188,8 @@ Create:
 
 Rules:
 
-* user cannot message without shared activity
-* store activity_id in messages table
+- user cannot message without shared activity
+- store activity_id in messages table
 
 Use Supabase realtime later — first make static messaging work.
 
@@ -201,8 +201,8 @@ Do NOT start with Workers.
 
 Add Workers when:
 
-* feed grows heavy
-* need edge caching
+- feed grows heavy
+- need edge caching
 
 First worker ideas:
 
@@ -213,9 +213,9 @@ First worker ideas:
 
 Use Workers for:
 
-* caching
-* rate limiting
-* webhook processing
+- caching
+- rate limiting
+- webhook processing
 
 Not business logic.
 
@@ -269,30 +269,30 @@ Start simple:
 
 ## Day 1–2
 
-* Repo setup
-* Auth working
+- Repo setup
+- Auth working
 
 ## Day 3–5
 
-* Supabase schema
-* Create activity
+- Supabase schema
+- Create activity
 
 ## Day 6–8
 
-* Home feed
-* Join flow
+- Home feed
+- Join flow
 
 ## Day 9–10
 
-* Profile page
+- Profile page
 
 ## Day 11–12
 
-* Messaging
+- Messaging
 
 ## Day 13–14
 
-* Polish + deploy MVP
+- Polish + deploy MVP
 
 Goal:
 One campus usable version — not perfection.
@@ -311,9 +311,9 @@ One campus usable version — not perfection.
 
 If you want, next I can give you a **founder-level starting roadmap specifically optimized for you** (since you use Next.js App Router heavily):
 
-* exact repo structure for Unistory scale
-* what files to create on Day 1
-* commands and folder tree you should literally paste
+- exact repo structure for Unstory scale
+- what files to create on Day 1
+- commands and folder tree you should literally paste
 
 Say:
 

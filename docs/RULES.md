@@ -1,4 +1,4 @@
-# Unistory — Next.js Codebase Rules & Best Practices
+# Unstory — Next.js Codebase Rules & Best Practices
 
 ---
 
@@ -6,10 +6,10 @@
 
 ## App Router Only
 
-* Use `app/` directory.
-* Avoid Pages Router.
-* Prefer Server Components by default.
-* Use Client Components only when interaction is required.
+- Use `app/` directory.
+- Avoid Pages Router.
+- Prefer Server Components by default.
+- Use Client Components only when interaction is required.
 
 ```
 Rule:
@@ -34,10 +34,10 @@ All new pages MUST be Server Components unless UI state requires "use client".
 
 Rules:
 
-* `ui/` → reusable primitives (Button, Card, Input).
-* `features/` → domain logic (activity, chat, profile).
-* `lib/` → helpers, API clients, DB logic.
-* Never mix business logic inside UI components.
+- `ui/` → reusable primitives (Button, Card, Input).
+- `features/` → domain logic (activity, chat, profile).
+- `lib/` → helpers, API clients, DB logic.
+- Never mix business logic inside UI components.
 
 ---
 
@@ -64,23 +64,23 @@ Never manually add `<head>` tags.
 
 ```
 export const metadata = {
-  title: "Unistory",
+  title: "Unstory",
   description: "Campus activity network"
 }
 ```
 
 Rules:
 
-* Each page MUST define metadata.
-* Use dynamic metadata for profiles and activities.
+- Each page MUST define metadata.
+- Use dynamic metadata for profiles and activities.
 
 ---
 
 ## Semantic HTML
 
-* Use `<main>`, `<section>`, `<article>`.
-* Avoid excessive div nesting.
-* Add alt text for images.
+- Use `<main>`, `<section>`, `<article>`.
+- Avoid excessive div nesting.
+- Add alt text for images.
 
 ---
 
@@ -88,8 +88,8 @@ Rules:
 
 SEO pages must:
 
-* fetch data on server
-* avoid client-side loading for core content
+- fetch data on server
+- avoid client-side loading for core content
 
 Bad:
 
@@ -115,8 +115,8 @@ await fetch() inside Server Component
 
 Rules:
 
-* Use slugs not query params for indexable pages.
-* Avoid deep nested routes.
+- Use slugs not query params for indexable pages.
+- Avoid deep nested routes.
 
 ---
 
@@ -132,9 +132,9 @@ fetch(url, { next: { revalidate: 60 } })
 
 Rules:
 
-* Static where possible.
-* ISR for feeds/events.
-* Dynamic only for chat/personalized content.
+- Static where possible.
+- ISR for feeds/events.
+- Dynamic only for chat/personalized content.
 
 ---
 
@@ -153,7 +153,7 @@ Use `next/image` only.
 
 Rules:
 
-* Never use `<img>` unless external constraints exist.
+- Never use `<img>` unless external constraints exist.
 
 ---
 
@@ -173,8 +173,8 @@ fetch + render
 
 ## Bundle Size Rules
 
-* Do not import heavy libraries globally.
-* Use dynamic imports:
+- Do not import heavy libraries globally.
+- Use dynamic imports:
 
 ```
 const Chat = dynamic(() => import("./Chat"))
@@ -194,16 +194,16 @@ Button → ActivityCard → ActivityFeed
 
 Rules:
 
-* UI primitives must be reusable.
-* Feature components must not import pages.
+- UI primitives must be reusable.
+- Feature components must not import pages.
 
 ---
 
 ## Styling Rules
 
-* Tailwind only.
-* No inline styles.
-* No hardcoded colors.
+- Tailwind only.
+- No inline styles.
+- No hardcoded colors.
 
 Use tokens:
 
@@ -283,9 +283,9 @@ Components MUST NOT access DB directly.
 
 ## Naming Conventions
 
-* PascalCase → Components
-* camelCase → functions
-* kebab-case → routes
+- PascalCase → Components
+- camelCase → functions
+- kebab-case → routes
 
 Examples:
 
@@ -299,8 +299,8 @@ activity-feed/
 
 ## File Size Limits
 
-* Components < 200 lines.
-* Hooks < 120 lines.
+- Components < 200 lines.
+- Hooks < 120 lines.
 
 If larger:
 → split logic.
@@ -309,8 +309,8 @@ If larger:
 
 ## Type Safety
 
-* Strict TypeScript required.
-* Avoid `any`.
+- Strict TypeScript required.
+- Avoid `any`.
 
 Use:
 
@@ -333,9 +333,9 @@ loading.tsx
 
 # 7) Security Rules
 
-* Never expose API keys in client components.
-* Use environment variables server-side only.
-* Validate inputs in server actions.
+- Never expose API keys in client components.
+- Use environment variables server-side only.
+- Validate inputs in server actions.
 
 ---
 
@@ -366,12 +366,12 @@ PROJECT RULES:
 
 Before shipping any feature:
 
-* No unnecessary `"use client"`
-* No blocking large imports
-* Metadata added
-* Images optimized
-* Skeleton loaders present
-* Server fetch used where possible
+- No unnecessary `"use client"`
+- No blocking large imports
+- Metadata added
+- Images optimized
+- Skeleton loaders present
+- Server fetch used where possible
 
 ---
 
@@ -406,9 +406,9 @@ This keeps UI consistent.
 
 ---
 
-If required, the next step is a **senior-architect level structure** specifically optimized for a large social app like Unistory:
+If required, the next step is a **senior-architect level structure** specifically optimized for a large social app like Unstory:
 
-* folder layout that scales to 1M+ users
-* server action patterns for feeds & chat
-* caching layers for activity graph
-* real-time architecture decisions
+- folder layout that scales to 1M+ users
+- server action patterns for feeds & chat
+- caching layers for activity graph
+- real-time architecture decisions

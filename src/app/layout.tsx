@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Unistory - The Campus Operating System",
+	title: "Unstory - The Campus Operating System",
 	description: "Connect, discover, and live your real-world campus story. The verified network for students.",
 	openGraph: {
-		title: "Unistory - Real-World Campus Connection",
+		title: "Unstory - Real-World Campus Connection",
 		description: "A verified network for students to discover events, find their tribe, and build meaningful relationships.",
 		type: "website",
 	}

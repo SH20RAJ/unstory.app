@@ -19,8 +19,8 @@ Recommended routing structure:
 
 Use:
 
-* Server Components for feed and profile data
-* Client Components only for interactive UI (chat, reactions)
+- Server Components for feed and profile data
+- Client Components only for interactive UI (chat, reactions)
 
 ---
 
@@ -32,16 +32,16 @@ Purpose: build trust graph early.
 
 Pages:
 
-* College email verification
-* Profile setup (branch, year, interests)
-* Club selection
-* First activity prompt
+- College email verification
+- Profile setup (branch, year, interests)
+- Club selection
+- First activity prompt
 
 UI principles:
 
-* stepper progress bar
-* minimal fields per screen
-* large touch targets
+- stepper progress bar
+- minimal fields per screen
+- large touch targets
 
 ---
 
@@ -51,9 +51,9 @@ This is not a generic social feed.
 
 Sections:
 
-* Active Now (presence indicators)
-* Activity Cards
-* Suggested Connections
+- Active Now (presence indicators)
+- Activity Cards
+- Suggested Connections
 
 Card Layout:
 
@@ -67,9 +67,9 @@ Join button
 
 Design:
 
-* rounded 2xl cards
-* subtle elevation
-* action-first layout
+- rounded 2xl cards
+- subtle elevation
+- action-first layout
 
 ---
 
@@ -79,11 +79,11 @@ Modal or full page.
 
 Fields:
 
-* Activity type
-* Title
-* Time
-* Location
-* Visibility
+- Activity type
+- Title
+- Time
+- Location
+- Visibility
 
 Design system rule:
 Primary CTA fixed at bottom.
@@ -96,15 +96,15 @@ Structured browsing.
 
 Tabs:
 
-* Today
-* This Week
-* Clubs
-* Popular
+- Today
+- This Week
+- Clubs
+- Popular
 
 Include:
 
-* grid/list toggle
-* filters
+- grid/list toggle
+- filters
 
 ---
 
@@ -114,14 +114,14 @@ Not swipe UI.
 
 Sections:
 
-* “You may know”
-* “Same class”
-* “Attending same events”
+- “You may know”
+- “Same class”
+- “Attending same events”
 
 Interaction:
 
-* Connect button
-* Quick intro prompt
+- Connect button
+- Quick intro prompt
 
 ---
 
@@ -129,13 +129,13 @@ Interaction:
 
 Split layout:
 
-* left sidebar conversations
-* right active chat
+- left sidebar conversations
+- right active chat
 
 Key UX:
 
-* show shared activity at top
-* reply suggestions (AI later)
+- show shared activity at top
+- reply suggestions (AI later)
 
 ---
 
@@ -143,10 +143,10 @@ Key UX:
 
 Sections:
 
-* Header (avatar, college, badges)
-* Activities attended
-* Clubs
-* Mutual connections
+- Header (avatar, college, badges)
+- Activities attended
+- Clubs
+- Mutual connections
 
 Avoid:
 Follower counts initially.
@@ -157,15 +157,15 @@ Follower counts initially.
 
 Universal search:
 
-* people
-* activities
-* clubs
-* events
+- people
+- activities
+- clubs
+- events
 
 Include:
 
-* live filtering
-* tag chips
+- live filtering
+- tag chips
 
 ---
 
@@ -173,9 +173,9 @@ Include:
 
 Grouped notifications:
 
-* Activity updates
-* Connections
-* Messages
+- Activity updates
+- Connections
+- Messages
 
 Design:
 Timeline layout.
@@ -184,9 +184,9 @@ Timeline layout.
 
 ## 10. Settings
 
-* privacy controls
-* college visibility
-* notification preferences
+- privacy controls
+- college visibility
+- notification preferences
 
 ---
 
@@ -198,17 +198,17 @@ Recommended mobile layout:
 
 Bottom Nav (5 items):
 
-* Home
-* Events
-* Create (+)
-* Connect
-* Profile
+- Home
+- Events
+- Create (+)
+- Connect
+- Profile
 
 Desktop:
 
-* left sidebar navigation
-* content center
-* optional right rail
+- left sidebar navigation
+- content center
+- optional right rail
 
 ---
 
@@ -230,16 +230,16 @@ Consistency improves perceived quality.
 
 Hierarchy:
 
-* Display: 28–32px (hero headings)
-* H1: 22px
-* H2: 18px
-* Body: 14–16px
-* Caption: 12px
+- Display: 28–32px (hero headings)
+- H1: 22px
+- H2: 18px
+- Body: 14–16px
+- Caption: 12px
 
 Font style:
 
-* Clean sans-serif
-* Slightly rounded feel for youth identity
+- Clean sans-serif
+- Slightly rounded feel for youth identity
 
 ---
 
@@ -249,10 +249,10 @@ Avoid “dating app pink” or “social media neon.”
 
 Suggested palette logic:
 
-* Neutral base (dark grey / white)
-* One primary accent
-* One success color
-* One warning color
+- Neutral base (dark grey / white)
+- One primary accent
+- One success color
+- One warning color
 
 Example structure:
 
@@ -271,16 +271,16 @@ Accent: Purple or Teal
 
 Variants:
 
-* primary
-* secondary
-* ghost
-* danger
+- primary
+- secondary
+- ghost
+- danger
 
 Sizes:
 
-* sm
-* md
-* lg
+- sm
+- md
+- lg
 
 ---
 
@@ -288,9 +288,9 @@ Sizes:
 
 Reusable for:
 
-* activities
-* people
-* events
+- activities
+- people
+- events
 
 Structure:
 
@@ -307,9 +307,9 @@ CardActions
 
 States:
 
-* online
-* busy
-* attending event
+- online
+- busy
+- attending event
 
 ---
 
@@ -317,9 +317,9 @@ States:
 
 Use for:
 
-* branch
-* interests
-* clubs
+- branch
+- interests
+- clubs
 
 ---
 
@@ -327,9 +327,9 @@ Use for:
 
 Consistent styling:
 
-* rounded
-* soft focus ring
-* inline validation
+- rounded
+- soft focus ring
+- inline validation
 
 ---
 
@@ -337,9 +337,9 @@ Consistent styling:
 
 ## Microinteractions
 
-* subtle scale on tap
-* join animation
-* connection confirmation
+- subtle scale on tap
+- join animation
+- connection confirmation
 
 Avoid heavy motion.
 
@@ -349,8 +349,8 @@ Avoid heavy motion.
 
 Use:
 
-* skeleton cards
-* shimmer loaders
+- skeleton cards
+- shimmer loaders
 
 Never blank screens.
 
@@ -360,8 +360,8 @@ Never blank screens.
 
 Critical for early growth:
 
-* illustration
-* suggestion CTA
+- illustration
+- suggestion CTA
 
 Example:
 “No activities yet — start one.”
@@ -370,18 +370,18 @@ Example:
 
 # 6) Visual Identity Direction (Strategic)
 
-Unistory should feel:
+Unstory should feel:
 
-* calm
-* trustworthy
-* campus-focused
-* slightly premium
+- calm
+- trustworthy
+- campus-focused
+- slightly premium
 
 Avoid:
 
-* loud gradients
-* swipe-based visuals
-* influencer-style UI
+- loud gradients
+- swipe-based visuals
+- influencer-style UI
 
 Think:
 “Not Instagram. Not Tinder. A campus tool.”
@@ -424,8 +424,8 @@ tokens.ts
 
 If required, the next step can be a **senior-level UI blueprint**:
 
-* exact component hierarchy for each page
-* Tailwind class structure
-* layout grids for mobile + desktop
-* dark mode strategy
-* animation system for Gen-Z retention
+- exact component hierarchy for each page
+- Tailwind class structure
+- layout grids for mobile + desktop
+- dark mode strategy
+- animation system for Gen-Z retention

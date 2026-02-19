@@ -1,8 +1,8 @@
-# Unistory: The Campus Super App
+# Unstory: The Campus Super App
 
 ## 1. Executive Summary
 
-**Unistory** is the exclusive, verified social network for college students. We are unbundling LinkedIn, Tinder, and Eventbrite to create a single, cohesive platform for the 40M+ students in India who crave a community that actually _gets_ them.
+**Unstory** is the exclusive, verified social network for college students. We are unbundling LinkedIn, Tinder, and Eventbrite to create a single, cohesive platform for the 40M+ students in India who crave a community that actually _gets_ them.
 
 ---
 
@@ -19,7 +19,7 @@ Student life is fragmented across platforms that weren't built for them.
 
 ---
 
-## 3. The Solution: Unistory
+## 3. The Solution: Unstory
 
 One app to rule the campus. A verified, student-only walled garden.
 
@@ -44,7 +44,7 @@ One app to rule the campus. A verified, student-only walled garden.
 ## 4. Market Opportunity
 
 - **TAM (Total Addressable Market):** 40 Million+ higher education students in India alone.
-- **Engagement:** Gen Z spends 4+ hours/day on mobile. Unistory captures the social, romantic, and professional bandwidth of this demographic.
+- **Engagement:** Gen Z spends 4+ hours/day on mobile. Unstory captures the social, romantic, and professional bandwidth of this demographic.
 - **Expansion:** Start with India, expand to global university networks.
 
 ---
@@ -59,7 +59,7 @@ One app to rule the campus. A verified, student-only walled garden.
 ## 6. Business Model
 
 - **Freemium:** Free core features to drive mass adoption.
-- **Premium (Unistory Gold):**
+- **Premium (Unstory Gold):**
   - See who liked you.
   - Unlimited swipes.
   - "Ghost Mode" for anonymity.
@@ -70,6 +70,6 @@ One app to rule the campus. A verified, student-only walled garden.
 
 ## 7. The Vision
 
-We aren't just building an app; we are building the **Digital Campus**. Unistory is the operating system for student life—from the day they get their admit letter to the day they graduate.
+We aren't just building an app; we are building the **Digital Campus**. Unstory is the operating system for student life—from the day they get their admit letter to the day they graduate.
 
-**Unistory: Find Your People.**
+**Unstory: Find Your People.**

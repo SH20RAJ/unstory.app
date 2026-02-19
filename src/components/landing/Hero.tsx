@@ -26,7 +26,7 @@ export function Hero() {
         </h1>
         
         <p className="max-w-xl text-lg md:text-xl text-muted-foreground/80 leading-relaxed">
-          Unistory connects you with the people, events, and opportunities that truly matter. 
+          Unstory connects you with the people, events, and opportunities that truly matter. 
           Stop scrolling, start living your real-world story.
         </p>
 

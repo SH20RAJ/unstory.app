@@ -1,4 +1,4 @@
-# UNISTORY — INVESTOR PITCH DOCUMENT
+# Unstory — INVESTOR PITCH DOCUMENT
 
 ## The Campus Operating System for Real-World Connection
 
@@ -6,7 +6,7 @@
 
 # 1. Vision
 
-Unistory is building the **default social layer for college life** — a verified campus network where students discover activities, friendships, collaboration, and relationships through real-world context instead of anonymous feeds or swipe-based dating.
+Unstory is building the **default social layer for college life** — a verified campus network where students discover activities, friendships, collaboration, and relationships through real-world context instead of anonymous feeds or swipe-based dating.
 
 The long-term vision is to become the **operating system for student identity and interaction** across campuses.
 
@@ -18,14 +18,14 @@ The long-term vision is to become the **operating system for student identity an
 
 Traditional platforms fail students because:
 
-* Generic feeds do not reflect college life.
-* Group chats are fragmented and chaotic.
-* Dating apps create fatigue instead of connection.
+- Generic feeds do not reflect college life.
+- Group chats are fragmented and chaotic.
+- Dating apps create fatigue instead of connection.
 
 Research shows a clear shift:
 
-* Nearly **80% of students don’t regularly use dating apps**, preferring real-world introductions. ([Forbes][1])
-* Gen Z reports dissatisfaction with swipe culture and wants authentic shared-interest interactions. ([Elearn College][2])
+- Nearly **80% of students don’t regularly use dating apps**, preferring real-world introductions. ([Forbes][1])
+- Gen Z reports dissatisfaction with swipe culture and wants authentic shared-interest interactions. ([Elearn College][2])
 
 Students are hyper-connected digitally yet lack structured ways to coordinate real campus life.
 
@@ -35,22 +35,22 @@ Students are hyper-connected digitally yet lack structured ways to coordinate re
 
 ## Massive and Growing Segment
 
-* College social apps market reached **$2.1B in 2024** and is projected to hit **$6B+ by 2033** with ~14% CAGR. ([Dataintelo][3])
-* Growth driven by event coordination, collaboration, and campus networking tools. ([Growth Market Reports][4])
-* Gen Z prioritizes niche community platforms over broad social networks. ([NextLeap][5])
+- College social apps market reached **$2.1B in 2024** and is projected to hit **$6B+ by 2033** with ~14% CAGR. ([Dataintelo][3])
+- Growth driven by event coordination, collaboration, and campus networking tools. ([Growth Market Reports][4])
+- Gen Z prioritizes niche community platforms over broad social networks. ([NextLeap][5])
 
-Unistory targets the intersection of:
+Unstory targets the intersection of:
 
-* Campus social apps
-* Event networks
-* Social discovery
-* Student identity platforms
+- Campus social apps
+- Event networks
+- Social discovery
+- Student identity platforms
 
 ---
 
 # 4. Why Now
 
-## Macro Trends Supporting Unistory
+## Macro Trends Supporting Unstory
 
 ### 1) Dating App Fatigue
 
@@ -72,17 +72,17 @@ Apps like Fizz expanded to hundreds of campuses and raised significant funding, 
 
 # 5. Solution
 
-## The Unistory Platform
+## The Unstory Platform
 
-Unistory transforms campus interactions into a **living activity graph**.
+Unstory transforms campus interactions into a **living activity graph**.
 
 Core features:
 
-* Verified college identity
-* Activity-based social feed
-* Contextual connections (same class, event, club)
-* Messaging unlocked through shared interactions
-* Soft discovery instead of swipe-based dating
+- Verified college identity
+- Activity-based social feed
+- Contextual connections (same class, event, club)
+- Messaging unlocked through shared interactions
+- Soft discovery instead of swipe-based dating
 
 Relationships emerge from **shared context**, not random matching.
 
@@ -94,18 +94,18 @@ Relationships emerge from **shared context**, not random matching.
 
 Activity-driven cards:
 
-* Study sessions
-* Music jams
-* Mess meetups
-* Hackathons
+- Study sessions
+- Music jams
+- Mess meetups
+- Hackathons
 
 ### Connect Layer
 
 Suggestions based on:
 
-* Mutual activities
-* Shared interests
-* Campus proximity
+- Mutual activities
+- Shared interests
+- Campus proximity
 
 ### Messaging
 
@@ -121,11 +121,11 @@ Campus-specific discovery and participation.
 
 Existing platforms focus on:
 
-* Anonymous posting
-* Influencer metrics
-* Swipe mechanics
+- Anonymous posting
+- Influencer metrics
+- Swipe mechanics
 
-Unistory builds:
+Unstory builds:
 
 > **A contextual campus identity graph.**
 
@@ -156,11 +156,11 @@ Problem: anonymity and moderation risks. ([New York Post][10])
 
 Cerca shows strong traction by using mutual social context. ([Business Insider][11])
 
-Unistory differentiates by combining:
+Unstory differentiates by combining:
 
-* identity
-* activity
-* campus infrastructure
+- identity
+- activity
+- campus infrastructure
 
 ---
 
@@ -168,18 +168,18 @@ Unistory differentiates by combining:
 
 ### Phase 1 — Growth
 
-* Campus ambassador programs
-* Club integrations
-* Event partnerships
+- Campus ambassador programs
+- Club integrations
+- Event partnerships
 
 Gen Z adoption thrives through peer networks rather than traditional ads. ([The Times][12])
 
 ### Phase 2 — Monetization
 
-* Event promotion tools
-* Local marketplace features
-* Premium discovery
-* Alumni networking
+- Event promotion tools
+- Local marketplace features
+- Premium discovery
+- Alumni networking
 
 ---
 
@@ -190,9 +190,9 @@ Gen Z adoption thrives through peer networks rather than traditional ads. ([The 
 Launch in one highly active college.
 Focus on:
 
-* hackathons
-* fests
-* societies
+- hackathons
+- fests
+- societies
 
 ## Step 2 — Viral Loops
 
@@ -203,9 +203,9 @@ Network grows through shared interactions.
 
 Cluster-based growth:
 
-* Nearby campuses
-* Regional networks
-* National identity graph
+- Nearby campuses
+- Regional networks
+- National identity graph
 
 ---
 
@@ -213,10 +213,10 @@ Cluster-based growth:
 
 Architecture principles:
 
-* Server-first Next.js architecture
-* Activity graph data model
-* AI-powered recommendations
-* Real-time presence
+- Server-first Next.js architecture
+- Activity graph data model
+- AI-powered recommendations
+- Real-time presence
 
 Lessons from AI networking platforms show contextual matching increases engagement and retention. ([Wikipedia][13])
 
@@ -226,22 +226,22 @@ Lessons from AI networking platforms show contextual matching increases engageme
 
 ## Phase 1 — MVP
 
-* Verified login
-* Activity cards
-* Join flow
-* Messaging
+- Verified login
+- Activity cards
+- Join flow
+- Messaging
 
 ## Phase 2 — Network Layer
 
-* Cross-campus discovery
-* AI recommendations
-* Club management tools
+- Cross-campus discovery
+- AI recommendations
+- Club management tools
 
 ## Phase 3 — Platform
 
-* Campus economy
-* Marketplace
-* AI campus assistant
+- Campus economy
+- Marketplace
+- AI campus assistant
 
 ---
 
@@ -251,39 +251,39 @@ Lessons from AI networking platforms show contextual matching increases engageme
 
 Solution:
 
-* ambassador seeding
-* event partnerships
+- ambassador seeding
+- event partnerships
 
 ## Risk: Toxicity
 
 Solution:
 
-* verified identity
-* contextual messaging
+- verified identity
+- contextual messaging
 
 ## Risk: Feature Overload
 
 Solution:
 
-* start with one behavior: activity coordination.
+- start with one behavior: activity coordination.
 
 ---
 
 # 14. Long-Term Vision
 
-Unistory evolves into:
+Unstory evolves into:
 
-* Campus identity layer
-* Social coordination infrastructure
-* Relationship engine for Gen Z
+- Campus identity layer
+- Social coordination infrastructure
+- Relationship engine for Gen Z
 
-As digital interactions shift toward authenticity and offline connection, Unistory becomes the **bridge between online presence and real-world college life**.
+As digital interactions shift toward authenticity and offline connection, Unstory becomes the **bridge between online presence and real-world college life**.
 
 ---
 
 # 15. One-Line Pitch
 
-Unistory is a verified campus activity network that transforms real-world student interactions into a trusted social graph — enabling authentic friendships, collaboration, and relationships without swipe fatigue.
+Unstory is a verified campus activity network that transforms real-world student interactions into a trusted social graph — enabling authentic friendships, collaboration, and relationships without swipe fatigue.
 
 ---
 

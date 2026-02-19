@@ -2,13 +2,13 @@ Below is a **research-based strategic blueprint** specifically for a “college 
 
 ---
 
-# 1) First understand the real market gap (not what founders *think* is missing)
+# 1) First understand the real market gap (not what founders _think_ is missing)
 
 ## Reality check from research
 
-* Most college students **don’t regularly use dating apps**; many prefer meeting organically. ([Axios][1])
-* Anonymous or unmoderated apps often grow fast but collapse due to toxicity (example: Sidechat/YikYak problems). ([Wikipedia][2])
-* Campus apps succeed when they solve a **specific daily behavior**, not when they try to be “everything.” Example: Down To Lunch grew because it solved spontaneous hangouts. ([Wikipedia][3])
+- Most college students **don’t regularly use dating apps**; many prefer meeting organically. ([Axios][1])
+- Anonymous or unmoderated apps often grow fast but collapse due to toxicity (example: Sidechat/YikYak problems). ([Wikipedia][2])
+- Campus apps succeed when they solve a **specific daily behavior**, not when they try to be “everything.” Example: Down To Lunch grew because it solved spontaneous hangouts. ([Wikipedia][3])
 
 ### Key insight
 
@@ -28,14 +28,14 @@ Examples: Sidechat, Ogle, TataUFO
 
 What works:
 
-* Verified college identity (email based)
-* Campus-specific feeds
-* Real-time interactions
+- Verified college identity (email based)
+- Campus-specific feeds
+- Real-time interactions
 
 What fails:
 
-* Toxicity due to anonymity
-* No real-life utility beyond posting
+- Toxicity due to anonymity
+- No real-life utility beyond posting
 
 ([Wikipedia][2])
 
@@ -51,9 +51,9 @@ Examples: DateMySchool, Date Drop, Cerca
 
 What works:
 
-* Verified communities
-* Mutual connections or structured matching
-* Limited daily profiles to reduce swipe fatigue
+- Verified communities
+- Mutual connections or structured matching
+- Limited daily profiles to reduce swipe fatigue
 
 ([Wikipedia][4])
 
@@ -61,9 +61,9 @@ What works:
 
 Gen-Z wants:
 
-* slower
-* intentional
-* socially contextual matching
+- slower
+- intentional
+- socially contextual matching
 
 Not swipe addiction.
 
@@ -75,8 +75,8 @@ Example: RoomSync
 
 What works:
 
-* solving real problems (roommates, events, housing)
-* institutional integration
+- solving real problems (roommates, events, housing)
+- institutional integration
 
 ([Wikipedia][5])
 
@@ -94,10 +94,10 @@ From research + Reddit community sentiment:
 
 Many users complain dating apps feel fake, gamified, or pay-to-win. ([Reddit][6])
 
-If Unistory looks like:
+If Unstory looks like:
 
-* Tinder clone → low retention
-* Instagram clone → impossible competition
+- Tinder clone → low retention
+- Instagram clone → impossible competition
 
 ---
 
@@ -113,7 +113,7 @@ Position it as:
 
 > **“Operating System for College Life.”**
 
-Dating becomes a *side effect* of campus interaction.
+Dating becomes a _side effect_ of campus interaction.
 
 ---
 
@@ -121,10 +121,10 @@ Dating becomes a *side effect* of campus interaction.
 
 ## Layer 1 — Identity Graph (your core moat)
 
-* College email verification
-* Year, branch, clubs
-* Shared events
-* Mutual friend network
+- College email verification
+- Year, branch, clubs
+- Shared events
+- Mutual friend network
 
 Why:
 New dating apps like Cerca use real social circles because trust matters more than swiping. ([Business Insider][7])
@@ -137,12 +137,12 @@ Instead of chat-first:
 
 Create features like:
 
-* “Who’s free now?” button (DownToLunch style)
-* Study partner finder
-* Mess/cafe meetup posts
-* Campus activity cards
+- “Who’s free now?” button (DownToLunch style)
+- Study partner finder
+- Mess/cafe meetup posts
+- Campus activity cards
 
-DTL exploded because it solved *one action* — lunch invites. ([Wikipedia][3])
+DTL exploded because it solved _one action_ — lunch invites. ([Wikipedia][3])
 
 Your edge:
 Make campus life visible in real time.
@@ -153,12 +153,11 @@ Make campus life visible in real time.
 
 Instead of swipe:
 
-* compatibility based on:
-
-  * classes
-  * events
-  * clubs
-  * interests
+- compatibility based on:
+  - classes
+  - events
+  - clubs
+  - interests
 
 Date Drop showed structured matching drives engagement. ([Wall Street Journal][8])
 
@@ -172,12 +171,12 @@ Dating should feel like:
 
 Add things no global social app can replicate:
 
-* roommate finder
-* fest coordination
-* lost & found
-* resource sharing
-* notes exchange
-* seniors mentoring juniors
+- roommate finder
+- fest coordination
+- lost & found
+- resource sharing
+- notes exchange
+- seniors mentoring juniors
 
 Utility = daily habit.
 
@@ -189,9 +188,9 @@ Since you already build AI systems:
 
 Create:
 
-* AI social connector (“you and X go to same hackathon weekly”)
-* AI campus event recommender
-* AI conversation starter
+- AI social connector (“you and X go to same hackathon weekly”)
+- AI campus event recommender
+- AI conversation starter
 
 ---
 
@@ -203,18 +202,18 @@ Instead:
 
 ### Phase 1 — Growth
 
-* campus ambassadors
-* fest partnerships
-* club integrations
+- campus ambassadors
+- fest partnerships
+- club integrations
 
 Gen-Z growth relies on peer networks and on-campus activations. ([The Times][9])
 
 ### Phase 2 — Revenue
 
-* premium visibility for events
-* placement for campus brands
-* housing partnerships
-* alumni networking
+- premium visibility for events
+- placement for campus brands
+- housing partnerships
+- alumni networking
 
 ---
 
@@ -222,9 +221,9 @@ Gen-Z growth relies on peer networks and on-campus activations. ([The Times][9])
 
 Current apps focus on:
 
-* chat
-* anonymous posts
-* dating swipes
+- chat
+- anonymous posts
+- dating swipes
 
 Nobody builds:
 
@@ -232,11 +231,11 @@ Nobody builds:
 
 If your system knows:
 
-* classes
-* interests
-* hangouts
-* events
-* clubs
+- classes
+- interests
+- hangouts
+- events
+- clubs
 
 You become the **default layer of college life**, not just another app.
 
@@ -260,9 +259,9 @@ Not “college super app.”
 
 Every interaction must involve:
 
-* tagging
-* inviting
-* showing mutual context
+- tagging
+- inviting
+- showing mutual context
 
 DTL spread campus-wide in a day because invites were social. ([Wikipedia][3])
 
@@ -281,7 +280,7 @@ DTL spread campus-wide in a day because invites were social. ([Wikipedia][3])
 
 Research shows:
 
-* Apps lose ~70% users in first week if habit isn’t strong. ([arXiv][10])
+- Apps lose ~70% users in first week if habit isn’t strong. ([arXiv][10])
 
 So success depends on:
 
@@ -293,18 +292,18 @@ Not UI, features, or AI alone.
 
 ---
 
-# 10) If you want, I can design a **YC-level blueprint** for Unistory
+# 10) If you want, I can design a **YC-level blueprint** for Unstory
 
 Based on your builder profile, the strongest direction would be:
 
-* Architecture of a campus “MindOS” (similar to how you think about Daksha)
-* Viral growth loops specific to Indian colleges
-* Feature roadmap from MVP → Series A scale
-* Exact positioning statement investors will understand
+- Architecture of a campus “MindOS” (similar to how you think about Daksha)
+- Viral growth loops specific to Indian colleges
+- Feature roadmap from MVP → Series A scale
+- Exact positioning statement investors will understand
 
 Say:
 
-**“Give me the YC-level Unistory blueprint.”**
+**“Give me the YC-level Unstory blueprint.”**
 
 Then I will outline a complete big-vision product strategy tailored to your skills and projects.
 

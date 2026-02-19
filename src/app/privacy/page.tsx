@@ -5,7 +5,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-[#FFE500] selection:text-black">
       <header className="flex h-16 items-center justify-between px-6 border-b border-white/10 fixed top-0 w-full bg-black/50 backdrop-blur-md z-50">
-        <Link href="/" className="text-xl font-bold tracking-tight">Unistory</Link>
+        <Link href="/" className="text-xl font-bold tracking-tight">Unstory</Link>
         <Link href="/">
            <Button variant="ghost" className="text-white hover:bg-white/10">Back to Home</Button>
         </Link>
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
       </main>
 
       <footer className="py-8 text-center text-sm text-muted-foreground border-t border-white/10">
-        <p>&copy; {new Date().getFullYear()} Unistory. Built for students.</p>
+        <p>&copy; {new Date().getFullYear()} Unstory. Built for students.</p>
       </footer>
     </div>
   );

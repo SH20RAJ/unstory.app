@@ -1,26 +1,26 @@
-# Unistory — Tech Stack Documentation
+# Unstory — Tech Stack Documentation
 
-This document describes the core technology stack used to build and scale **Unistory**.
+This document describes the core technology stack used to build and scale **Unstory**.
 The architecture focuses on performance, scalability, real-time interactions, and a server-first approach.
 
 ---
 
 # Overview
 
-Unistory uses a modern full-stack architecture combining:
+Unstory uses a modern full-stack architecture combining:
 
-* **Next.js** for frontend and server rendering
-* **Cloudflare Workers** for edge compute
-* **Supabase** for database and storage
-* **Stack Auth** for authentication and identity
-* **TypeScript** across the entire codebase
+- **Next.js** for frontend and server rendering
+- **Cloudflare Workers** for edge compute
+- **Supabase** for database and storage
+- **Stack Auth** for authentication and identity
+- **TypeScript** across the entire codebase
 
 The system is designed to be:
 
-* SEO friendly
-* Edge-optimized
-* Real-time capable
-* Scalable to large campus networks
+- SEO friendly
+- Edge-optimized
+- Real-time capable
+- Scalable to large campus networks
 
 ---
 
@@ -48,23 +48,23 @@ Primary frontend framework and server layer.
 
 ## Key Responsibilities
 
-* Server Components rendering
-* SEO optimized routing
-* UI layer
-* API routes and server actions
-* Data fetching and caching
+- Server Components rendering
+- SEO optimized routing
+- UI layer
+- API routes and server actions
+- Data fetching and caching
 
 ## Why Next.js
 
-* App Router enables server-first architecture
-* Built-in metadata API for SEO
-* Streaming and ISR improve performance
+- App Router enables server-first architecture
+- Built-in metadata API for SEO
+- Streaming and ISR improve performance
 
 ## Conventions
 
-* Default to Server Components.
-* Avoid `"use client"` unless interaction requires it.
-* Use route groups:
+- Default to Server Components.
+- Avoid `"use client"` unless interaction requires it.
+- Use route groups:
 
 ```
 /app/(auth)
@@ -74,9 +74,9 @@ Primary frontend framework and server layer.
 
 ## Performance Practices
 
-* Use `fetch(..., { next: { revalidate } })`
-* Prefer ISR over dynamic rendering
-* Use `next/image` for assets
+- Use `fetch(..., { next: { revalidate } })`
+- Prefer ISR over dynamic rendering
+- Use `next/image` for assets
 
 ---
 
@@ -86,25 +86,25 @@ Primary frontend framework and server layer.
 
 Edge runtime for fast global responses and API handling.
 
-## Use Cases in Unistory
+## Use Cases in Unstory
 
-* Edge caching
-* Activity feed pre-processing
-* Rate limiting
-* Webhook processing
-* Lightweight API endpoints
+- Edge caching
+- Activity feed pre-processing
+- Rate limiting
+- Webhook processing
+- Lightweight API endpoints
 
 ## Why Workers
 
-* Low latency globally
-* Runs close to users
-* Reduces server load
+- Low latency globally
+- Runs close to users
+- Reduces server load
 
 ## Rules
 
-* Workers must remain stateless.
-* Avoid heavy business logic inside Workers.
-* Use Workers mainly for:
+- Workers must remain stateless.
+- Avoid heavy business logic inside Workers.
+- Use Workers mainly for:
 
 ```
 Authentication validation
@@ -131,30 +131,30 @@ Backend data platform.
 
 ## Services Used
 
-* PostgreSQL database
-* Storage (avatars, media)
-* Realtime subscriptions
-* Row Level Security (RLS)
+- PostgreSQL database
+- Storage (avatars, media)
+- Realtime subscriptions
+- Row Level Security (RLS)
 
 ## Why Supabase
 
-* Strong Postgres foundation
-* Built-in realtime
-* Scales well with social graphs
+- Strong Postgres foundation
+- Built-in realtime
+- Scales well with social graphs
 
 ## Data Responsibilities
 
-* Users
-* Activities
-* Events
-* Connections
-* Messages
+- Users
+- Activities
+- Events
+- Connections
+- Messages
 
 ## Best Practices
 
-* Enable RLS on all tables.
-* Never expose service keys to the client.
-* Use server actions for sensitive queries.
+- Enable RLS on all tables.
+- Never expose service keys to the client.
+- Use server actions for sensitive queries.
 
 Example:
 
@@ -173,22 +173,22 @@ Authentication and identity management.
 
 ## Responsibilities
 
-* College email login
-* Session handling
-* User identity verification
-* Token validation
+- College email login
+- Session handling
+- User identity verification
+- Token validation
 
 ## Why Stack Auth
 
-* Developer-friendly auth flows
-* Works well with edge environments
-* Scalable identity system
+- Developer-friendly auth flows
+- Works well with edge environments
+- Scalable identity system
 
 ## Rules
 
-* Auth logic must remain server-side.
-* Use middleware for session validation.
-* Never store sensitive auth logic in client components.
+- Auth logic must remain server-side.
+- Use middleware for session validation.
+- Never store sensitive auth logic in client components.
 
 Example integration points:
 
@@ -203,14 +203,14 @@ Example integration points:
 
 ## Styling System
 
-* Tailwind CSS
-* Design tokens in `/config/theme.ts`
+- Tailwind CSS
+- Design tokens in `/config/theme.ts`
 
 Rules:
 
-* No inline styles.
-* No hardcoded hex colors.
-* Use design tokens only.
+- No inline styles.
+- No hardcoded hex colors.
+- Use design tokens only.
 
 Example tokens:
 
@@ -239,14 +239,14 @@ Avoid large client-side stores early.
 
 Supabase Realtime is used for:
 
-* Chat updates
-* Activity joins
-* Presence indicators
+- Chat updates
+- Activity joins
+- Presence indicators
 
 Cloudflare Workers can assist with:
 
-* throttling events
-* edge event validation
+- throttling events
+- edge event validation
 
 ---
 
@@ -254,9 +254,9 @@ Cloudflare Workers can assist with:
 
 Handled mainly through Next.js:
 
-* Metadata API per page
-* Server-rendered profiles
-* Slug-based routing
+- Metadata API per page
+- Server-rendered profiles
+- Slug-based routing
 
 Example routes:
 
@@ -282,8 +282,8 @@ CF_API_TOKEN=
 
 Rules:
 
-* Public keys only in client env.
-* Secrets must remain server-side.
+- Public keys only in client env.
+- Secrets must remain server-side.
 
 ---
 
@@ -291,11 +291,11 @@ Rules:
 
 ## Frontend
 
-* Deploy via Cloudflare Pages or Vercel.
+- Deploy via Cloudflare Pages or Vercel.
 
 ## Workers
 
-* Deploy using Wrangler.
+- Deploy using Wrangler.
 
 ```
 npm run deploy:worker
@@ -303,7 +303,7 @@ npm run deploy:worker
 
 ## Database
 
-* Managed via Supabase dashboard.
+- Managed via Supabase dashboard.
 
 ---
 
@@ -328,27 +328,27 @@ npm run deploy:worker
 
 The stack is designed to support:
 
-* Large campus networks
-* Real-time messaging
-* Activity graphs
-* AI-driven recommendations
+- Large campus networks
+- Real-time messaging
+- Activity graphs
+- AI-driven recommendations
 
 Future extensions may include:
 
-* Edge AI inference
-* Background queues
-* Analytics pipelines
+- Edge AI inference
+- Background queues
+- Analytics pipelines
 
 ---
 
 # Summary
 
-Unistory’s stack combines:
+Unstory’s stack combines:
 
-* **Next.js** for UI and server rendering
-* **Cloudflare Workers** for edge compute
-* **Supabase** for database and realtime
-* **Stack Auth** for identity
+- **Next.js** for UI and server rendering
+- **Cloudflare Workers** for edge compute
+- **Supabase** for database and realtime
+- **Stack Auth** for identity
 
 This architecture enables a fast, SEO-friendly, and scalable campus platform designed for long-term growth.
 
