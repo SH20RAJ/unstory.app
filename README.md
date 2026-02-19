@@ -5,6 +5,9 @@ Instead of traditional social media or swipe-based dating, Unistory builds a **t
 
 ---
 
+[PITCH.md](PITCH.md)
+---
+
 # Overview
 
 Unistory aims to become the **operating layer for college life**, combining:
