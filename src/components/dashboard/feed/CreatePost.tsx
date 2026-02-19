@@ -39,7 +39,7 @@ export function CreatePost() {
             <div className="relative">
                 <Textarea 
                     placeholder="Tell your campus about your thoughts..." 
-                    className="min-h-[40px] w-full bg-transparent border-0 text-white placeholder:text-white/20 focus-visible:ring-0 text-md p-0 resize-none leading-relaxed"
+                    className="min-h-[40px] w-full bg-transparent border-0 text-white placeholder:text-white/20 focus-visible:ring-0 text-md p-4 resize-none leading-relaxed"
                     onFocus={handleFocus}
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
