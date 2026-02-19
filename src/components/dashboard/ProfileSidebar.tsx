@@ -7,9 +7,9 @@ import { Search, Plus } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const communities = [
-  { name: "UX designers", count: 32, image: "bg-orange-500" },
-  { name: "Frontend dev", count: 12, image: "bg-blue-500" },
-  { name: "Photographers", count: 8, image: "bg-purple-500" },
+  { name: "Coding Club", count: 142, image: "bg-blue-600" },
+  { name: "Debate Soc", count: 89, image: "bg-red-500" },
+  { name: "Robotics", count: 56, image: "bg-purple-500" },
 ];
 
 export function ProfileSidebar() {
@@ -27,40 +27,41 @@ export function ProfileSidebar() {
                   <div className="relative">
                       <Avatar className="h-20 w-20 border-4 border-[#121212] shadow-2xl">
                           <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>EL</AvatarFallback>
+                          <AvatarFallback>RM</AvatarFallback>
                       </Avatar>
                       <div className="absolute bottom-1 right-1 h-4 w-4 rounded-full bg-green-500 border-2 border-[#121212]" />
                   </div>
                   
                   <div className="flex items-center justify-between w-full mt-4 mb-2 text-white/50 text-xs font-mono">
                       <div className="flex flex-col items-center">
-                          <span className="text-white font-bold text-lg">1984</span>
-                          <span>Followers</span>
+                          <span className="text-white font-bold text-lg">482</span>
+                          <span>Connections</span>
                       </div>
                       <div className="flex flex-col items-center">
-                          <span className="text-white font-bold text-lg">1002</span>
-                          <span>Following</span>
+                          <span className="text-white font-bold text-lg">12</span>
+                          <span>Projects</span>
                       </div>
                   </div>
 
-                  <h2 className="text-xl font-bold text-white mt-2">Evgen Ledo</h2>
-                  <p className="text-white/40 text-sm">@ledoteam</p>
+                  <h2 className="text-xl font-bold text-white mt-2">Shaswat Raj</h2>
+                  <p className="text-white/40 text-sm">@rohan_dev</p>
 
                   <p className="text-white/80 text-sm mt-4 leading-relaxed">
-                      🌟 Hello, I'm UX/UI designer. Open to new projects. 🌟
+                      💻 CS Undergrad @ BIT Mesra. <br/>
+                      Building tools for the future. 🚀
                   </p>
 
                   <Button className="w-full mt-6 bg-white/5 hover:bg-white/10 text-white rounded-xl h-12 border border-white/5">
-                      My Profile
+                      View Profile
                   </Button>
              </div>
         </div>
 
         {/* Skills */}
         <div className="space-y-4">
-            <h3 className="text-white font-semibold text-lg">Skills</h3>
+            <h3 className="text-white font-semibold text-lg">Interests</h3>
             <div className="flex flex-wrap gap-2">
-                {["UX Design", "Copywriting", "Mobile", "Research", "User Interview", "JS", "Logo"].map(skill => (
+                {["React", "AI/ML", "Hackathons", "Photography", "Badminton"].map(skill => (
                     <Badge key={skill} variant="secondary" className="bg-[#1A1A1A] hover:bg-[#252525] text-white/70 border-0 py-2 px-4 rounded-xl font-normal">
                         {skill}
                     </Badge>
@@ -71,7 +72,7 @@ export function ProfileSidebar() {
         {/* Communities */}
         <div className="space-y-4">
              <div className="flex items-center justify-between">
-                <h3 className="text-white font-semibold text-lg">Communities</h3>
+                <h3 className="text-white font-semibold text-lg">My Clubs</h3>
                 <div className="flex gap-2">
                     <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Search className="h-4 w-4"/></Button>
                     <Button size="icon" variant="ghost" className="h-8 w-8 text-white/50 hover:text-white rounded-full"><Plus className="h-4 w-4"/></Button>
@@ -88,7 +89,7 @@ export function ProfileSidebar() {
                              <span className="text-white text-sm font-medium">{comm.name}</span>
                              <span className="text-white/40 text-xs flex items-center gap-1">
                                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFE500]" />
-                                 {comm.count} friends joined
+                                 {comm.count} members
                              </span>
                          </div>
                      </div>

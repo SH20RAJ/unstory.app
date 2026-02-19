@@ -60,7 +60,7 @@ export function SocialDashboard() {
                           <AvatarImage src="https://github.com/shadcn.png" />
                           <AvatarFallback>EL</AvatarFallback>
                       </Avatar>
-                      <span className="text-sm font-medium hidden md:inline">Evgen Ledo</span>
+                      <span className="text-sm font-medium hidden md:inline">Shaswat Raj</span>
                       <ChevronDown className="h-4 w-4 text-white/40" />
                  </Button>
             </div>
