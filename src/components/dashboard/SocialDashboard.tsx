@@ -17,9 +17,9 @@ import { DashboardFeed } from "./DashboardFeed";
 
 export function SocialDashboard() {
   return (
-    <div className="w-full min-h-screen bg-[#09090b] flex flex-col font-sans">
-       {/* Top Navigation */}
-       <header className="sticky top-0 z-50 w-full h-20 bg-[#09090b] border-b border-white/5 flex items-center justify-between px-4 lg:px-8">
+    <div className="w-full min-h-screen bg-[#09090b] flex flex-col font-sans mb-16 md:mb-0">
+       {/* Top Navigation - Desktop Only */}
+       <header className="sticky top-0 z-50 w-full h-20 bg-[#09090b] border-b border-white/5 hidden md:flex items-center justify-between px-4 lg:px-8">
             <div className="flex items-center gap-8 flex-1">
                 {/* Logo */}
                 <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center shrink-0">
@@ -83,6 +83,30 @@ export function SocialDashboard() {
                <ActivitySidebar />
            </div>
        </div>
+
+       {/* Mobile Bottom Navigation */}
+       <nav className="fixed bottom-0 left-0 right-0 z-50 h-16 bg-[#09090b]/80 backdrop-blur-xl border-t border-white/5 flex items-center justify-around px-2 md:hidden">
+            <Button variant="ghost" className="flex flex-col items-center justify-center gap-1 h-full w-full rounded-none hover:bg-white/5 text-[#FFE500]">
+                <Home className="h-5 w-5 fill-current" />
+            </Button>
+            <Button variant="ghost" className="flex flex-col items-center justify-center gap-1 h-full w-full rounded-none hover:bg-white/5 text-white/60">
+                <Search className="h-5 w-5" />
+            </Button>
+             <div className="relative -top-5">
+                <Button className="h-12 w-12 rounded-full bg-[#FFE500] hover:bg-[#FFE500]/90 text-black shadow-lg shadow-[#FFE500]/20 flex items-center justify-center">
+                    <span className="text-2xl font-light mb-1">+</span>
+                </Button>
+            </div>
+            <Button variant="ghost" className="flex flex-col items-center justify-center gap-1 h-full w-full rounded-none hover:bg-white/5 text-white/60">
+                <MessageCircle className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" className="flex flex-col items-center justify-center gap-1 h-full w-full rounded-none hover:bg-white/5 text-white/60">
+                <Avatar className="h-6 w-6 border border-white/10">
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>ME</AvatarFallback>
+                </Avatar>
+            </Button>
+       </nav>
     </div>
   );
 }
