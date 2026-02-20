@@ -1,17 +1,24 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-// import { datingProfiles } from "@/db/schema";
-// import { ne } from "drizzle-orm";
+import { datingProfiles, users } from "@/db/schema";
+import { eq, ne } from "drizzle-orm";
 
 export async function getDatingProfiles(currentUserId: string | undefined | null) {
-  let profiles = [];
+  const query = db.select({
+      profile: datingProfiles,
+      username: users.username,
+  })
+  .from(datingProfiles)
+  .leftJoin(users, eq(datingProfiles.userId, users.id));
+
   if (currentUserId) {
-      profiles = await db.query.datingProfiles.findMany({
-          // where: ne(datingProfiles.userId, currentUserId),
-      });
-  } else {
-      profiles = await db.query.datingProfiles.findMany();
+      query.where(ne(datingProfiles.userId, currentUserId));
   }
-  return profiles;
+
+  const results = await query;
+  return results.map(r => ({
+      ...r.profile,
+      username: r.username
+  }));
 }

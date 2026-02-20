@@ -5,8 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, BookOpen } from "lucide-react";
 import Image from "next/image";
 
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { UserCircle } from "lucide-react";
+
 interface DatingCardProps {
-  profile: DatingProfile;
+  profile: DatingProfile & { username?: string | null };
 }
 
 export function DatingCard({ profile }: DatingCardProps) {
@@ -42,6 +46,13 @@ export function DatingCard({ profile }: DatingCardProps) {
                 <MapPin className="h-3 w-3" />
                 {profile.distance}
             </div>
+            {profile.username && (
+                <Link href={`/@${profile.username}`}>
+                  <Button size="icon" variant="ghost" className="rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md">
+                      <UserCircle className="h-5 w-5" />
+                  </Button>
+                </Link>
+            )}
         </div>
 
         <div className="flex items-center gap-2 text-white/70 text-sm">
