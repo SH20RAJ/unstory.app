@@ -98,9 +98,11 @@ CREATE TABLE "stories" (
 CREATE TABLE "users" (
 	"id" text PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
+	"nickname" text,
 	"username" text,
 	"avatar" text,
 	"bio" text,
+	"onboarded" boolean DEFAULT false,
 	"college_id" text,
 	"banner" text,
 	"major" text,

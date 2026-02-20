@@ -38,10 +38,10 @@ export default async function LandingPage() {
             <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-8">Trusted by students from <span className="text-foreground font-bold">1,350+</span> colleges including</p>
             <div className="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                 {/* Placeholders for logos */}
-                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> Uni One</div>
-                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> Tech State</div>
-                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> Campus X</div>
-                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> Modern U</div>
+                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> BIT MESRA</div>
+                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> IIT BOMBAY</div>
+                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> IIT GUWAHATI</div>
+                <div className="text-xl font-bold flex items-center gap-2"><span className="h-8 w-8 bg-current rounded-full"></span> IIT MADRAS</div>
             </div>
         </div>
       </section>

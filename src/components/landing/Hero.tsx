@@ -15,7 +15,7 @@ export function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium text-primary backdrop-blur-sm">
           <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-          Now live on 3 campuses
+          Now live on 3 more campuses
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold tracking-tighter bg-linear-to-br from-foreground to-foreground/50 bg-clip-text text-transparent pb-2">

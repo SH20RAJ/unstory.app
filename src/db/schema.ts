@@ -5,10 +5,12 @@ import { pgTable, text, timestamp, boolean, integer, jsonb, serial, primaryKey }
 export const users = pgTable("users", {
   id: text("id").primaryKey(), // Using text IDs from mock data/auth
   name: text("name").notNull(),
+  nickname: text("nickname"), // User-changeable display name
   username: text("username").unique(),
   avatar: text("avatar"),
   bio: text("bio"),
-  
+  onboarded: boolean("onboarded").default(false), // Tracks if user finished initial setup
+
   // Link to college
   collegeId: text("college_id").references(() => colleges.id),
   

@@ -81,6 +81,8 @@ async function seed() {
       year: "2026", // Default for mock
       role: "Student",
       interests: ["Coding", "Design"], // Mock interests
+      nickname: u.name,
+      onboarded: true
     }).onConflictDoNothing();
   }
   
@@ -100,6 +102,8 @@ async function seed() {
         role: "Student",
         interests: ["Full Stack", "AI", "Open Source"],
         socialLinks: { github: "github.com/shaswat", linkedin: "linkedin.com/in/shaswat" },
+        nickname: currentUser.name,
+        onboarded: true
       }).onConflictDoNothing();
   }
 
@@ -126,6 +130,8 @@ async function seed() {
         username: p.user.username,
         avatar: p.user.avatar,
         verified: p.user.verified || false,
+        nickname: p.user.name,
+        onboarded: true
     }).onConflictDoNothing();
 
     await db.insert(posts).values({
@@ -155,7 +161,9 @@ async function seed() {
           bio: d.bio,
           collegeId: null, // mock
           year: "2025",
-          major: d.major
+          major: d.major,
+          nickname: d.name,
+          onboarded: true
       }).onConflictDoNothing();
       
       await db.insert(datingProfiles).values({
@@ -180,7 +188,9 @@ async function seed() {
             id: eUserId,
             name: e.author.name,
             username: eUserId,
-            year: "2027"
+            year: "2027",
+            nickname: e.author.name,
+            onboarded: true
         }).onConflictDoNothing();
         
         await db.insert(posts).values({

@@ -21,6 +21,10 @@ export default async function MainLayout({
       if (result && 'error' in result && result.error === "unauthorized_domain") {
           redirect("/unauthorized");
       }
+      
+      if (result && 'user' in result && result.user && !result.user.onboarded) {
+          redirect("/onboarding");
+      }
   }
 
   return (

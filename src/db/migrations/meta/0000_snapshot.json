@@ -1,5 +1,5 @@
 {
-  "id": "690bac69-4a83-45a7-96b4-c2cdb818dc3e",
+  "id": "4063896f-d494-4014-adb1-38aa79cdb951",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -718,6 +718,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "nickname": {
+          "name": "nickname",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "username": {
           "name": "username",
           "type": "text",
@@ -735,6 +741,13 @@
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "onboarded": {
+          "name": "onboarded",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
         },
         "college_id": {
           "name": "college_id",
