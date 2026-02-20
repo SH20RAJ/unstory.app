@@ -15,9 +15,12 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
+  const numericId = parseInt(slug, 10);
   
   const community = await db.query.communities.findFirst({
-      where: or(eq(communities.slug, slug), eq(communities.id, slug))
+      where: isNaN(numericId)
+          ? eq(communities.slug, slug)
+          : or(eq(communities.slug, slug), eq(communities.id, numericId))
   });
 
   if (!community) {
@@ -34,9 +37,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CommunityPage({ params }: PageProps) {
   const { slug } = await params;
+  const numericId = parseInt(slug, 10);
 
   const community = await db.query.communities.findFirst({
-      where: or(eq(communities.slug, slug), eq(communities.id, slug))
+      where: isNaN(numericId)
+          ? eq(communities.slug, slug)
+          : or(eq(communities.slug, slug), eq(communities.id, numericId))
   });
 
   if (!community) {

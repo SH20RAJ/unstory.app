@@ -1,11 +1,58 @@
-"use client";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
-import { ACTIVITIES } from "@db/activities";
+import { db } from "@/db/drizzle";
+import { notifications } from "@/db/schema";
+import { desc, eq } from "drizzle-orm";
+import { stackServerApp } from "@/stack/server";
 
-export function ActivitySidebar() {
+interface ActivityItem {
+    id: string;
+    avatar: string;
+    user: string;
+    action: string | null;
+    time: string;
+    type: string;
+    highlight: boolean;
+    isGroup: boolean;
+}
+
+export async function ActivitySidebar() {
+  const user = await stackServerApp.getUser();
+  let activities: ActivityItem[] = [];
+
+  if (user) {
+      const recentNotifs = await db.query.notifications.findMany({
+          where: eq(notifications.userId, user.id),
+          orderBy: [desc(notifications.createdAt)],
+          limit: 6
+      });
+
+      activities = recentNotifs.map(n => ({
+          id: n.id.toString(),
+          avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${n.id}`,
+          user: n.title || "System",
+          action: n.message,
+          time: new Date(n.createdAt).toLocaleDateString(),
+          type: n.type,
+          highlight: !n.read,
+          isGroup: false,
+      }));
+  }
+
+  // Fallback if no notifications yet
+  if (activities.length === 0) {
+      activities = [{
+          id: "welcome",
+          avatar: "https://api.dicebear.com/7.x/bottts/svg?seed=welcome",
+          user: "Welcome to Unstory!",
+          action: "Start connecting with your campus.",
+          time: "Just now",
+          type: "system",
+          highlight: true,
+          isGroup: false
+      }];
+  }
+
   return (
     <div className="flex flex-col h-full bg-[#121212] rounded-[32px] p-6 border border-white/5">
         <h3 className="text-white text-lg font-medium mb-6">Recent activity</h3>
@@ -14,7 +61,7 @@ export function ActivitySidebar() {
              {/* Timeline Line (Conceptual) */}
              <div className="absolute left-6 top-4 bottom-4 w-px bg-white/5" />
 
-             {ACTIVITIES.map((item) => (
+             {activities.map((item) => (
                  <div key={item.id} className="relative flex flex-col gap-3 p-4 rounded-2xl bg-[#1A1A1A] border border-white/5 hover:bg-[#202020] transition-colors mb-4 last:mb-0">
                      <div className="flex items-start justify-between">
                          <div className="flex items-start gap-3">
@@ -34,24 +81,6 @@ export function ActivitySidebar() {
                              </div>
                          </div>
                      </div>
-
-                     {/* Action Buttons area */}
-                     {(item.type === "purchase" || item.type === "tip" || item.type === "invite") && (
-                         <div className="flex items-center justify-between mt-1 pl-[52px]">
-                             {item.amount && <span className="text-white font-bold">{item.amount} <span className="text-white/40 text-xs font-normal">/purchase</span></span>}
-                             {item.isGroup && <Button variant="ghost" size="sm" className="h-8 rounded-full text-white/60 hover:text-white bg-white/5">Discard</Button>}
-                             
-                             {item.theme === "yellow" ? (
-                                 <Button size="sm" className="bg-[#FFE500] hover:bg-[#FFE500]/90 text-black font-bold h-8 rounded-full px-4">
-                                     {item.status}
-                                 </Button>
-                             ) : (
-                                 <Button size="sm" variant="secondary" className="bg-[#2A2A2A] hover:bg-[#333] text-white/60 h-8 rounded-full px-4">
-                                     {item.status}
-                                 </Button>
-                             )}
-                         </div>
-                     )}
                  </div>
              ))}
         </div>

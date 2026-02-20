@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description: "Stay updated with your latest interactions.",
 };
 
-export default function NotificationsPage() {
-  return <NotificationsClient />;
+export default async function NotificationsPage() {
+  // We will fetch from a server action here later
+  return <NotificationsClient notices={[]} />;
 }

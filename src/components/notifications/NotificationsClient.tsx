@@ -4,9 +4,23 @@ import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Heart, MessageCircle, UserPlus, Bell, Zap } from "lucide-react";
-import { NOTIFICATIONS } from "@db/notifications";
+export interface NotificationUI {
+    id: string;
+    type: string;
+    content: string;
+    time: string;
+    read: boolean;
+    user?: {
+        name: string;
+        avatar: string;
+    };
+}
 
-export function NotificationsClient() {
+interface NotificationsClientProps {
+    notices: NotificationUI[];
+}
+
+export function NotificationsClient({ notices }: NotificationsClientProps) {
   return (
     <DashboardLayout>
        <div className="flex flex-col gap-6">
@@ -16,7 +30,7 @@ export function NotificationsClient() {
           </div>
 
           <div className="flex flex-col gap-4">
-              {NOTIFICATIONS.map((notif) => (
+              {notices.map((notif) => (
                   <div 
                       key={notif.id} 
                       className={`flex items-start gap-4 p-4 rounded-xl border border-white/5 transition-colors ${notif.read ? 'bg-transparent' : 'bg-white/5'}`}
@@ -62,7 +76,7 @@ export function NotificationsClient() {
               ))}
           </div>
 
-          {NOTIFICATIONS.length === 0 && (
+          {notices.length === 0 && (
                <div className="flex flex-col items-center justify-center py-20 text-center opacity-40">
                    <Bell className="h-12 w-12 mb-4" />
                    <p>No new notifications</p>
