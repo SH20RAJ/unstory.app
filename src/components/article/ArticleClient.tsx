@@ -7,14 +7,29 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Clock, Share2, Bookmark, MoreHorizontal, Heart, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ARTICLE_CONTENT } from "@db/articles";
+interface ArticleData {
+    category: string;
+    title: string;
+    author: {
+        name: string;
+        avatar: string;
+        date: string;
+        readTime: string;
+    };
+    coverImage: string;
+    content: string;
+    stats: {
+        likes: number;
+        comments: number;
+    }
+}
 
 interface ArticleClientProps {
     id: string;
+    article: ArticleData;
 }
 
-export function ArticleClient({ id: _id }: ArticleClientProps) {
-  const article = ARTICLE_CONTENT; // In a real app, find by ID using the prop
+export function ArticleClient({ id: _id, article }: ArticleClientProps) {
 
   return (
     <DashboardLayout showRightSidebar={false}>

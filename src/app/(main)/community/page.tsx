@@ -1,17 +1,23 @@
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { COMMUNITIES } from "@db/users";
 import { CommunityFilters } from "@/components/community/CommunityFilters";
 import { CommunityCard } from "@/components/community/CommunityCard";
 import { Metadata } from "next";
+import { db } from "@/db/drizzle";
+import { communities } from "@/db/schema";
+import { desc } from "drizzle-orm";
 
 export const metadata: Metadata = {
   title: "Communities | Unstory",
   description: "Explore and join student communities, clubs, and societies.",
 };
 
-export default function CommunityLandingPage() {
+export default async function CommunityLandingPage() {
+  const allCommunities = await db.query.communities.findMany({
+      orderBy: [desc(communities.createdAt)],
+  });
+
   return (
     <DashboardLayout>
       <div className="flex flex-col h-full w-full max-w-5xl mx-auto px-4 py-8 md:px-8">
@@ -31,8 +37,8 @@ export default function CommunityLandingPage() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COMMUNITIES.map((community) => (
-                <CommunityCard key={community.name} community={community} />
+            {allCommunities.map((community) => (
+                <CommunityCard key={community.id} community={community} />
             ))}
 
             {/* Create New Card Placeholder */}

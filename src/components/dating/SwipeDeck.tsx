@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useMotionValue, useTransform, useAnimation, PanInfo } from "framer-motion";
-import { DatingProfile } from "@db/dating";
+import { DatingProfile } from "@/db/schema";
 import { DatingCard } from "./DatingCard";
 import { Button } from "@/components/ui/button";
 import { X, Heart, RotateCcw } from "lucide-react";

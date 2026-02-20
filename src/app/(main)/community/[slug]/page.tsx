@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { MessageCircle } from "lucide-react";
-import { COMMUNITIES } from "@db/users";
 import { CommunityHero } from "@/components/community/CommunityHero";
 import { CommunityStats } from "@/components/community/CommunityStats";
 import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { Metadata } from "next";
+import { db } from "@/db/drizzle";
+import { communities } from "@/db/schema";
+import { eq, or } from "drizzle-orm";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -13,9 +15,10 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const community = COMMUNITIES.find(
-    (c) => c.name.toLowerCase().replace(/\s+/g, "-") === slug
-  );
+  
+  const community = await db.query.communities.findFirst({
+      where: or(eq(communities.slug, slug), eq(communities.id, slug))
+  });
 
   if (!community) {
     return {
@@ -25,16 +28,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${community.name} | Unstory`,
-    description: `Join ${community.name} on Unstory. ${community.count} members.`,
+    description: `Join ${community.name} on Unstory. ${community.memberCount || 0} members.`,
   };
 }
 
 export default async function CommunityPage({ params }: PageProps) {
   const { slug } = await params;
 
-  const community = COMMUNITIES.find(
-    (c) => c.name.toLowerCase().replace(/\s+/g, "-") === slug
-  );
+  const community = await db.query.communities.findFirst({
+      where: or(eq(communities.slug, slug), eq(communities.id, slug))
+  });
 
   if (!community) {
     return notFound();
@@ -43,10 +46,10 @@ export default async function CommunityPage({ params }: PageProps) {
   return (
     <DashboardLayout>
       <div className="flex flex-col h-full w-full max-w-4xl mx-auto">
-        <CommunityHero name={community.name} image={community.image} />
+        <CommunityHero name={community.name} image={community.image || ''} />
 
         <div className="px-8 mt-2 space-y-6">
-            <CommunityStats name={community.name} count={community.count} />
+            <CommunityStats name={community.name} count={community.memberCount || 0} />
             <CommunityTabs />
 
             {/* Content Placeholder */}

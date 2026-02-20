@@ -4,8 +4,16 @@ import { FeedPost, Post } from "./feed/FeedPost";
 import { db } from "@/db/drizzle";
 import { posts, users } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
+import { stackServerApp } from "@/stack/server";
 
 export async function DashboardFeed() {
+  const stackUser = await stackServerApp.getUser();
+  let dbUser = null;
+  if (stackUser) {
+      dbUser = await db.query.users.findFirst({
+          where: eq(users.id, stackUser.id)
+      });
+  }
 
   // Manual join is safer if relations object isn't perfectly typed. Let's do a fast query directly using drizzle syntax.
   const rawPosts = await db.select({
@@ -40,7 +48,7 @@ export async function DashboardFeed() {
   return (
     <div className="flex flex-col gap-8 h-full max-w-2xl mx-auto w-full">
         <StoryRail />
-        <CreatePost />
+        <CreatePost userAvatar={dbUser?.avatar || null} userName={dbUser?.nickname || dbUser?.name || "User"} />
         
         <div className="space-y-6">
             {mappedPosts.map((post) => (

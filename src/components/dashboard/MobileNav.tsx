@@ -12,12 +12,14 @@ import {
   Plus
 } from "lucide-react";
 
-import { CURRENT_USER } from "@db/users";
+interface MobileNavProps {
+    userAvatar?: string | null;
+    userName?: string;
+}
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export function MobileNav() {
+export function MobileNav({ userAvatar, userName }: MobileNavProps) {
   const pathname = usePathname();
-  const user = CURRENT_USER;
 
   const tabs = [
     { id: "home", icon: Home, label: "Home", href: "/home" },
@@ -42,7 +44,7 @@ export function MobileNav() {
                             whileTap={{ scale: 0.9 }}
                             className="h-14 w-14 rounded-full bg-[#FFE500] text-black shadow-lg shadow-[#FFE500]/25 flex items-center justify-center border-4 border-[#09090b]"
                         >
-                            <Plus className="h-6 w-6 stroke-[3]" />
+                            <Plus className="h-6 w-6 stroke-3" />
                         </motion.div>
                     </Link>
                 </div>
@@ -62,8 +64,8 @@ export function MobileNav() {
                 
                 {tab.isProfile ? (
                      <Avatar className={cn("h-6 w-6 border-2 transition-all", isActive ? "border-[#FFE500] scale-110" : "border-transparent opacity-60")}>
-                        <AvatarImage src={user?.avatar} />
-                        <AvatarFallback>{user?.name[0]}</AvatarFallback>
+                        <AvatarImage src={userAvatar || undefined} />
+                        <AvatarFallback>{userName?.[0]}</AvatarFallback>
                     </Avatar>
                 ) : (
                     <Icon 

@@ -1,5 +1,3 @@
-"use client";
-
 import { ProfileSidebar } from "./ProfileSidebar";
 import { ActivitySidebar } from "./ActivitySidebar";
 

@@ -2,11 +2,15 @@
 
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { SwipeDeck } from "@/components/dating/SwipeDeck";
-import { DATING_PROFILES } from "@db/dating";
+import { DatingProfile } from "@/db/schema";
 import { Heart, SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function DatingClient() {
+interface DatingClientProps {
+    profiles: DatingProfile[];
+}
+
+export function DatingClient({ profiles }: DatingClientProps) {
   return (
     <DashboardLayout>
        <div className="flex flex-col h-[calc(100vh-80px)] md:h-screen max-w-2xl mx-auto w-full px-4 py-6">
@@ -26,9 +30,8 @@ export function DatingClient() {
                </Button>
            </div>
 
-           {/* Swipe Area */}
            <div className="flex-1 flex flex-col justify-center pb-20">
-               <SwipeDeck profiles={DATING_PROFILES} />
+               <SwipeDeck profiles={profiles} />
            </div>
        </div>
     </DashboardLayout>

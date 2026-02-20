@@ -31,10 +31,14 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { CURRENT_USER } from "@db/users";
 import { createPost } from "@/actions/posts";
 
-export function CreatePost() {
+interface CreatePostProps {
+    userAvatar?: string | null;
+    userName?: string;
+}
+
+export function CreatePost({ userAvatar, userName }: CreatePostProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -171,8 +175,8 @@ export function CreatePost() {
       <div className="p-4">
         <div className="flex gap-4">
           <Avatar className="h-10 w-10 shrink-0">
-            <AvatarImage src={CURRENT_USER?.avatar} />
-            <AvatarFallback>{CURRENT_USER?.name[0]}</AvatarFallback>
+            <AvatarImage src={userAvatar || undefined} />
+            <AvatarFallback>{userName?.[0]}</AvatarFallback>
           </Avatar>
           
           <div className="flex-1 space-y-4">

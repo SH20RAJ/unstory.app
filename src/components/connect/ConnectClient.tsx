@@ -3,11 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
-import { USERS, CURRENT_USER } from "@db/users";
+import { User, College } from "@/db/schema";
 import { UserPlus, Sparkles, MapPin } from "lucide-react";
 
-export function ConnectClient() {
-  const suggestedUsers = USERS.filter(u => u.id !== CURRENT_USER?.id);
+interface ConnectClientProps {
+    suggestedUsers: (User & { collegeData?: College | null })[];
+}
+
+export function ConnectClient({ suggestedUsers }: ConnectClientProps) {
 
   return (
     <DashboardLayout>
@@ -35,15 +38,19 @@ export function ConnectClient() {
                             <div key={person.id} className="flex items-center justify-between p-4 hover:bg-white/2 transition-colors border-b border-white/5 last:border-0">
                                 <div className="flex items-center gap-3">
                                     <Avatar className="h-12 w-12 border border-white/10">
-                                        <AvatarImage src={person.avatar} />
+                                        <AvatarImage src={person.avatar || undefined} />
                                         <AvatarFallback>{person.name[0]}</AvatarFallback>
                                     </Avatar>
                                     <div className="flex flex-col">
-                                        <span className="font-semibold text-white text-sm">{person.name}</span>
+                                        <span className="font-semibold text-white text-sm">{person.nickname || person.name}</span>
                                         <div className="flex items-center gap-1 text-xs text-white/40">
-                                            <span>@{person.username}</span>
-                                            <span>•</span>
-                                            <span className="flex items-center gap-0.5"><MapPin className="h-3 w-3" /> {person.college}</span>
+                                            <span>@{person.username || 'user'}</span>
+                                            {person.collegeData && (
+                                              <>
+                                                <span>•</span>
+                                                <span className="flex items-center gap-0.5"><MapPin className="h-3 w-3" /> {person.collegeData.name}</span>
+                                              </>
+                                            )}
                                         </div>
                                        {person.bio && <p className="text-xs text-white/60 mt-0.5 line-clamp-1 max-w-[200px]">{person.bio}</p>}
                                     </div>

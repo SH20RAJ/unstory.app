@@ -4,9 +4,20 @@ import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { cn } from "@/lib/utils";
 import { Heart, MessageCircle, Play } from "lucide-react";
 import Image from "next/image";
-import { EXPLORE_ITEMS } from "@db/explore";
 
-export function ExploreClient() {
+interface ExploreItem {
+    id: number;
+    image: string;
+    aspect: string;
+    metrics: { likes: number; comments: number };
+    type: string;
+}
+
+interface ExploreClientProps {
+    exploreItems: ExploreItem[];
+}
+
+export function ExploreClient({ exploreItems }: ExploreClientProps) {
   return (
     <DashboardLayout showRightSidebar={false}>
       <div className="flex flex-col gap-6">
@@ -29,7 +40,7 @@ export function ExploreClient() {
 
         {/* Masonry Grid */}
         <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
-            {EXPLORE_ITEMS.map((item) => (
+            {exploreItems.map((item) => (
                 <div key={item.id} className="relative group break-inside-avoid rounded-xl overflow-hidden cursor-pointer">
                     <div className={cn("relative w-full bg-white/5", item.aspect)}>
                         <Image 

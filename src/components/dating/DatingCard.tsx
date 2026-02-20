@@ -1,6 +1,6 @@
 "use client";
 
-import { DatingProfile } from "@db/dating";
+import { DatingProfile } from "@/db/schema";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, MapPin, BookOpen } from "lucide-react";
 import Image from "next/image";
@@ -15,13 +15,13 @@ export function DatingCard({ profile }: DatingCardProps) {
       {/* Image */}
       <div className="absolute inset-0">
         <Image
-          src={profile.images[0]}
+          src={profile.images?.[0] || 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=60'}
           alt={profile.name}
           fill
           className="object-cover pointer-events-none"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent" />
       </div>
 
       {/* Content */}
@@ -54,7 +54,7 @@ export function DatingCard({ profile }: DatingCardProps) {
         </p>
 
         <div className="flex flex-wrap gap-2 mt-2">
-            {profile.interests.map((interest) => (
+            {(profile.interests || []).map((interest) => (
                 <Badge key={interest} variant="secondary" className="bg-white/10 hover:bg-white/20 text-white border-0">
                     {interest}
                 </Badge>
