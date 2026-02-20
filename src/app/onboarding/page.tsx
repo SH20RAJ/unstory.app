@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { stackServerApp } from "@/stack/server";
 import { db } from "@/db/drizzle";
-import { users } from "@/db/schema";
+import { users, colleges } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { OnboardingForm } from "@/components/profile/OnboardingForm";
@@ -24,6 +24,13 @@ export default async function OnboardingPage() {
       redirect("/");
   }
 
+  let college = null;
+  if (dbUser.collegeId) {
+      college = await db.query.colleges.findFirst({
+          where: eq(colleges.id, dbUser.collegeId)
+      });
+  }
+
   return (
     <div className="min-h-screen bg-black text-white p-6 md:p-12 flex flex-col items-center justify-center">
       <div className="max-w-2xl w-full p-8 rounded-2xl bg-[#09090b] border border-white/10 shadow-2xl">
@@ -38,7 +45,7 @@ export default async function OnboardingPage() {
              </p>
          </div>
 
-         <OnboardingForm user={dbUser} />
+         <OnboardingForm user={dbUser} college={college} />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { users, colleges, posts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { stackServerApp } from "@/stack/server";
+import { Post } from "@/components/dashboard/feed/FeedPost";
 
 interface PageProps {
   params: Promise<{ username: string }>;
@@ -54,14 +55,15 @@ export default async function PublicProfilePage({ params }: PageProps) {
           username: profileUser.username || 'user',
           avatar: profileUser.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${profileUser.username}`,
           verified: !!profileUser.verified,
+          collegeSafeName: collegeData?.name || undefined,
       },
       time: new Date(p.createdAt).toLocaleDateString(),
-      type: p.type as any,
+      type: p.type as Post['type'],
       content: p.content || '',
       image: p.mediaUrls?.[0],
-      poll: p.pollDetails as any,
-      event: p.eventDetails as any,
-      article: p.articleDetails as any,
+      poll: p.pollDetails as unknown as Post['poll'],
+      event: p.eventDetails as unknown as Post['event'],
+      article: p.articleDetails as unknown as Post['article'],
       likes: p.likesCount || 0,
       comments: p.commentsCount || 0,
       shares: p.sharesCount || 0,

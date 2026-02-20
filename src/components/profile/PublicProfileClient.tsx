@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageCircle, UserPlus, MapPin, Link as LinkIcon, Calendar, Edit3 } from "lucide-react";
+import { MessageCircle, UserPlus, MapPin, Link as LinkIcon, Calendar, Edit3, GraduationCap } from "lucide-react";
 import { FeedPost } from "@/components/dashboard/feed/FeedPost";
 import { User, College } from "@/db/schema";
 import Link from "next/link";
@@ -44,9 +44,17 @@ export function PublicProfileClient({ user, college, isCurrentUser, initialPosts
                   <div className="flex-1 pb-2">
                        <h1 className="text-3xl font-bold flex items-center gap-2">
                            {displayName} 
-                           {(user.role === 'Student' || !user.role) && <Badge variant="secondary" className="bg-[#FFE500] text-black hover:bg-[#FFE500]/90">Student</Badge>}
+                           {(user.role === 'Student' || !user.role) && <Badge variant="secondary" className="bg-[#FFE500] text-black hover:bg-[#FFE500]/90 font-bold border-none">Student</Badge>}
+                           {college && (
+                               <Link href={`/colleges/${college.slug || college.emailDomain}`}>
+                                   <Badge variant="outline" className="border-white/20 hover:bg-white/5 cursor-pointer backdrop-blur-md">
+                                       <GraduationCap className="h-3.5 w-3.5 mr-1" />
+                                       {college.name}
+                                   </Badge>
+                               </Link>
+                           )}
                        </h1>
-                       <p className="text-muted-foreground text-lg">@{usernameStr.toLowerCase()} • {user.major || 'Major Not Set'} {user.year ? `'${user.year.slice(-2)}` : ''} {college ? `• ${college.name}` : ''}</p>
+                       <p className="text-muted-foreground text-lg">@{usernameStr.toLowerCase()} • {user.major || 'Major Not Set'} {user.year ? `'${user.year.slice(-2)}` : ''}</p>
                   </div>
 
                   <div className="flex gap-3 pb-2">

@@ -1,8 +1,23 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { posts, users } from "@/db/schema";
+import { posts, users, colleges } from "@/db/schema";
 import { desc, sql, eq } from "drizzle-orm";
+
+export async function getDashboardFeedPosts() {
+  const rawPosts = await db.select({
+      post: posts,
+      user: users,
+      college: colleges,
+  })
+  .from(posts)
+  .innerJoin(users, eq(posts.userId, users.id))
+  .leftJoin(colleges, eq(users.collegeId, colleges.id))
+  .orderBy(desc(posts.createdAt))
+  .limit(30);
+
+  return rawPosts;
+}
 
 export async function getExploreMediaPosts() {
   const mediaPosts = await db.query.posts.findMany({

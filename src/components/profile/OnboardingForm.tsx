@@ -7,10 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { updateProfile } from "@/actions/user";
-import { User } from "@/db/schema";
-import { Loader2 } from "lucide-react";
+import { User, College } from "@/db/schema";
+import { Loader2, GraduationCap } from "lucide-react";
 
-export function OnboardingForm({ user }: { user: User }) {
+export function OnboardingForm({ user, college }: { user: User, college: College | null | undefined }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const socialLinks = (user.socialLinks as { portfolio?: string, github?: string, linkedin?: string }) || {};
@@ -73,6 +73,17 @@ export function OnboardingForm({ user }: { user: User }) {
         />
         <p className="text-xs text-muted-foreground">Your real name ({user.name}) cannot be changed.</p>
       </div>
+
+      {college && (
+          <div className="space-y-2">
+            <Label>College Affiliation</Label>
+            <div className="flex items-center gap-3 bg-[#18181b] border border-white/10 rounded-md p-3 select-none">
+                <GraduationCap className="h-5 w-5 text-[#FFE500]" />
+                <span className="text-sm font-medium">{college.name}</span>
+            </div>
+            <p className="text-xs text-muted-foreground">Assigned automatically via your registered email address.</p>
+          </div>
+      )}
 
       <div className="space-y-2">
         <Label htmlFor="avatar">Profile Picture URL (DP)</Label>

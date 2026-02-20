@@ -2,9 +2,10 @@ import { StoryRail } from "./stories/StoryRail";
 import { CreatePost } from "./feed/CreatePost";
 import { FeedPost, Post } from "./feed/FeedPost";
 import { db } from "@/db/drizzle";
-import { posts, users } from "@/db/schema";
-import { desc, eq } from "drizzle-orm";
+import { users } from "@/db/schema";
+import { eq } from "drizzle-orm";
 import { stackServerApp } from "@/stack/server";
+import { getDashboardFeedPosts } from "@/actions/posts.actions";
 
 export async function DashboardFeed() {
   const stackUser = await stackServerApp.getUser();
@@ -15,14 +16,7 @@ export async function DashboardFeed() {
       });
   }
 
-  // Manual join is safer if relations object isn't perfectly typed. Let's do a fast query directly using drizzle syntax.
-  const rawPosts = await db.select({
-      post: posts,
-      user: users,
-  })
-  .from(posts)
-  .innerJoin(users, eq(posts.userId, users.id))
-  .orderBy(desc(posts.createdAt));
+  const rawPosts = await getDashboardFeedPosts();
 
   // Map to the expected UI Post type
   const mappedPosts: Post[] = rawPosts.map(p => ({
@@ -32,6 +26,7 @@ export async function DashboardFeed() {
           username: p.user.username || 'user',
           avatar: p.user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${p.user.username}`,
           verified: !!p.user.verified,
+          collegeSafeName: p.college?.name,
       },
       time: new Date(p.post.createdAt).toLocaleDateString(),
       type: p.post.type as Post['type'],

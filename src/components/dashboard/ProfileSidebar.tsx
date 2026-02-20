@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Search, Plus } from "lucide-react";
 import { stackServerApp } from "@/stack/server";
 import { db } from "@/db/drizzle";
-import { users, communities } from "@/db/schema";
+import { users, colleges } from "@/db/schema";
 import { eq } from "drizzle-orm";
 
 export async function ProfileSidebar() {
@@ -17,6 +17,13 @@ export async function ProfileSidebar() {
   });
 
   if (!dbUser) return null;
+
+  let college = null;
+  if (dbUser.collegeId) {
+      college = await db.query.colleges.findFirst({
+        where: eq(colleges.id, dbUser.collegeId)
+      });
+  }
 
   const allCommunities = await db.query.communities.findMany({
       limit: 5 // Get some communities to display
@@ -58,6 +65,14 @@ export async function ProfileSidebar() {
 
                   <h2 className="text-xl font-bold text-white mt-2">{displayName}</h2>
                   <p className="text-white/40 text-sm">@{usernameStr}</p>
+
+                  {college && (
+                      <Link href={`/colleges/${college.slug || college.emailDomain}`}>
+                          <Badge variant="outline" className="mt-2 border-white/10 bg-white/5 font-normal text-xs py-1 hover:bg-white/10 transition-colors">
+                              {college.name}
+                          </Badge>
+                      </Link>
+                  )}
 
                   <p className="text-white/80 text-sm mt-4 leading-relaxed line-clamp-3">
                       {dbUser.bio || "No bio yet."}
