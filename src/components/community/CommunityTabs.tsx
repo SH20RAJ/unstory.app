@@ -1,14 +1,39 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export function CommunityTabs() {
+interface CommunityTabsProps {
+  slug: string;
+  activeTab: string;
+}
+
+export function CommunityTabs({ slug, activeTab }: CommunityTabsProps) {
+  const tabs = [
+    { id: "feed", label: "Feed" },
+    { id: "events", label: "Events" },
+    { id: "members", label: "Members" },
+    { id: "resources", label: "Resources" },
+  ];
+
   return (
-    <div className="flex gap-4 border-b border-white/10 pb-1">
-        <Button variant="ghost" className="rounded-none border-b-2 border-[#FFE500] text-[#FFE500] hover:bg-transparent px-2">Feed</Button>
-        <Button variant="ghost" className="rounded-none border-b-2 border-transparent text-white/60 hover:text-white hover:bg-transparent px-2">Events</Button>
-        <Button variant="ghost" className="rounded-none border-b-2 border-transparent text-white/60 hover:text-white hover:bg-transparent px-2">Members</Button>
-        <Button variant="ghost" className="rounded-none border-b-2 border-transparent text-white/60 hover:text-white hover:bg-transparent px-2">Resources</Button>
+    <div className="flex gap-4 border-b border-white/10 pb-1 overflow-x-auto scrollbar-hide">
+      {tabs.map(tab => (
+        <Link key={tab.id} href={`/community/${slug}?tab=${tab.id}`}>
+          <Button 
+            variant="ghost" 
+            className={cn(
+              "rounded-none border-b-2 px-2 hover:bg-transparent transition-colors",
+              activeTab === tab.id 
+                ? "border-[#FFE500] text-[#FFE500]" 
+                : "border-transparent text-white/60 hover:text-white"
+            )}
+          >
+            {tab.label}
+          </Button>
+        </Link>
+      ))}
     </div>
   );
 }

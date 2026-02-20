@@ -1,7 +1,8 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { posts, users, colleges, stories } from "@/db/schema";
+import { posts, users, colleges, stories, comments, likes } from "@/db/schema";
+import { stackServerApp } from "@/stack/server";
 import { desc, sql, eq } from "drizzle-orm";
 
 export async function getDashboardFeedPosts() {
@@ -108,3 +109,81 @@ export async function getActiveStories() {
 
   return activeStories;
 }
+
+// --- Post Interactions ---
+
+export async function getPostComments(postId: number) {
+  const postComments = await db.select({
+    comment: comments,
+    user: users,
+  })
+  .from(comments)
+  .innerJoin(users, eq(comments.userId, users.id))
+  .where(eq(comments.postId, postId))
+  .orderBy(desc(comments.createdAt));
+
+  return postComments.map(c => ({
+    id: c.comment.id,
+    user: {
+      name: c.user.name,
+      username: c.user.username || 'user',
+      avatar: c.user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${c.user.username}`,
+      verified: c.user.verified || false,
+    },
+    content: c.comment.content,
+    time: new Date(c.comment.createdAt).toLocaleDateString(),
+  }));
+}
+
+export async function addComment(postId: number, content: string) {
+  const stackUser = await stackServerApp.getUser();
+  if (!stackUser) throw new Error("Unauthorized");
+
+  // Insert comment
+  await db.insert(comments).values({
+    postId,
+    userId: stackUser.id,
+    content,
+  });
+
+  // Increment comments count
+  await db.update(posts)
+    .set({ commentsCount: sql`${posts.commentsCount} + 1` })
+    .where(eq(posts.id, postId));
+
+  return { success: true };
+}
+
+export async function toggleLikePost(postId: number) {
+  const stackUser = await stackServerApp.getUser();
+  if (!stackUser) throw new Error("Unauthorized");
+
+  const existingLike = await db.query.likes.findFirst({
+    where: (likes, { and, eq }) => and(eq(likes.postId, postId), eq(likes.userId, stackUser.id))
+  });
+
+  if (existingLike) {
+    // Unlike
+    await db.delete(likes)
+      .where(sql`${likes.postId} = ${postId} AND ${likes.userId} = ${stackUser.id}`);
+    
+    await db.update(posts)
+      .set({ likesCount: sql`${posts.likesCount} - 1` })
+      .where(eq(posts.id, postId));
+    
+    return { liked: false };
+  } else {
+    // Like
+    await db.insert(likes).values({
+      postId,
+      userId: stackUser.id,
+    });
+    
+    await db.update(posts)
+      .set({ likesCount: sql`${posts.likesCount} + 1` })
+      .where(eq(posts.id, postId));
+    
+    return { liked: true };
+  }
+}
+

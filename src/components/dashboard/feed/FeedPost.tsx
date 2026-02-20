@@ -26,6 +26,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { toggleLikePost } from "@/actions/posts.actions";
 
 export type PostType = 'text' | 'image' | 'video' | 'poll' | 'event' | 'article';
 
@@ -74,15 +75,26 @@ export function FeedPost({ post, isDetailedView = false }: FeedPostProps) {
   const [likesCount, setLikesCount] = useState(post.likes);
   const [isSaved, setIsSaved] = useState(false);
 
-  const handleLike = (e: React.MouseEvent) => {
+  const handleLike = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (isLiked) {
-      setLikesCount(prev => prev - 1);
-      setIsLiked(false);
-    } else {
-      setLikesCount(prev => prev + 1);
-      setIsLiked(true);
-      toast.success("Post Liked");
+    
+    // Optimistic UI update
+    const wasLiked = isLiked;
+    setIsLiked(!wasLiked);
+    setLikesCount(prev => wasLiked ? prev - 1 : prev + 1);
+
+    try {
+        const result = await toggleLikePost(post.id);
+        if (result.liked !== !wasLiked) {
+            // Revert on mismatch (rare)
+            setIsLiked(result.liked);
+            setLikesCount(prev => result.liked ? prev + 1 : prev - 1);
+        }
+    } catch {
+        // Revert on failure
+        setIsLiked(wasLiked);
+        setLikesCount(prev => wasLiked ? prev + 1 : prev - 1);
+        toast.error("Failed to like post.");
     }
   };
 
@@ -108,6 +120,27 @@ export function FeedPost({ post, isDetailedView = false }: FeedPostProps) {
       e.stopPropagation();
       // Using a generic profile route for now, can be /profile/[username]
       router.push(`/@${post.user.username}`);
+  };
+
+  const renderContentWithHashtags = (text: string) => {
+    if (!text) return null;
+    const parts = text.split(/(#[a-zA-Z0-9_]+)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('#')) {
+        const query = encodeURIComponent(part);
+        return (
+          <Link 
+            key={i} 
+            href={`/search?q=${query}`}
+            onClick={(e) => e.stopPropagation()} 
+            className="text-[#FFE500] hover:underline"
+          >
+            {part}
+          </Link>
+        );
+      }
+      return <span key={i}>{part}</span>;
+    });
   };
 
   return (
@@ -166,9 +199,9 @@ export function FeedPost({ post, isDetailedView = false }: FeedPostProps) {
       </div>
 
       {/* Content */}
-      <p className="text-white/90 text-sm leading-relaxed whitespace-pre-wrap">
-        {post.content}
-      </p>
+      <div className="text-white/90 text-sm leading-relaxed whitespace-pre-wrap">
+        {renderContentWithHashtags(post.content)}
+      </div>
 
       {/* Media / Type Content */}
       {post.type === 'image' && post.image && (

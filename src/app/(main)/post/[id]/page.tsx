@@ -1,6 +1,6 @@
 import { PostClient } from "@/components/post/PostClient";
 import { Metadata } from "next";
-import { getSinglePost } from "@/actions/posts.actions";
+import { getSinglePost, getPostComments } from "@/actions/posts.actions";
 import { Post } from "@/components/dashboard/feed/FeedPost";
 
 interface PageProps {
@@ -51,5 +51,7 @@ export default async function PostPage({ params }: PageProps) {
       shares: rawPost.post.sharesCount || 0,
   };
 
-  return <PostClient post={mappedPost as Post} />;
+  const comments = await getPostComments(numericId);
+
+  return <PostClient post={mappedPost as Post} initialComments={comments} />;
 }
