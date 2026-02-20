@@ -18,12 +18,15 @@ export default async function ProfilePage() {
   let collegeData = null;
 
   if (stackUser) {
-    dbUser = await syncUser(stackUser);
+    const result = await syncUser(stackUser);
     
-    if (dbUser?.collegeId) {
-        collegeData = await db.query.colleges.findFirst({
-            where: eq(colleges.id, dbUser.collegeId)
-        });
+    if (result && 'user' in result && result.user) {
+        dbUser = result.user;
+        if (dbUser.collegeId) {
+            collegeData = await db.query.colleges.findFirst({
+                where: eq(colleges.id, dbUser.collegeId)
+            });
+        }
     }
   }
 
