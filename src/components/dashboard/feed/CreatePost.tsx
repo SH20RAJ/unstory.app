@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { CURRENT_USER } from "@db/users";
+import { createPost } from "@/actions/posts";
 
 export function CreatePost() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -122,22 +123,40 @@ export function CreatePost() {
 
   const handlePost = async () => {
       setIsLoading(true);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      toast.success("Post created successfully!");
-      
-      // Reset State
-      setContent("");
-      setMedia(null);
-      setMediaPreview(null);
-      setShowPoll(false);
-      setPollOptions(["", ""]);
-      setDate(undefined);
-      setLocation("");
-      setShowLocation(false);
-      setIsExpanded(false);
-      setIsLoading(false);
+
+      try {
+          // In a real app with cloud storage, we'd upload the file first and get a URL.
+          // For now, we'll simulate passing media if available, or just omit it for text posts.
+          // Note: createPost expects mediaUrls as an array of string URLs.
+          // We won't try to send raw dataURLs to the DB to save space in this demo.
+          // If a placeholder was needed: const mediaUrls = mediaPreview ? [mediaPreview] : [];
+          
+          const result = await createPost({
+              content: content.trim(),
+              mediaUrls: [], // Placeholder since we don't have S3 upload yet
+              type: showPoll ? 'poll' : (media ? 'image' : 'text')
+          });
+
+          if (result.error) {
+              toast.error(result.error);
+          } else {
+              toast.success("Post created successfully!");
+              // Reset State
+              setContent("");
+              setMedia(null);
+              setMediaPreview(null);
+              setShowPoll(false);
+              setPollOptions(["", ""]);
+              setDate(undefined);
+              setLocation("");
+              setShowLocation(false);
+              setIsExpanded(false);
+          }
+      } catch (err) {
+          toast.error("An unexpected error occurred.");
+      } finally {
+          setIsLoading(false);
+      }
   };
 
   const isPostDisabled = !content.trim() && !media && (!showPoll || pollOptions.every(o => !o.trim()));

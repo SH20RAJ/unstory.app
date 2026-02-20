@@ -10,25 +10,16 @@ import { FeedPost } from "@/components/dashboard/feed/FeedPost";
 import { User, College } from "@/db/schema";
 import Link from "next/link";
 
-const USER_POSTS = [
-    {
-      id: 1,
-      user: { name: "Tanya Sharma", username: "tanyaux", avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d", verified: true, collegeSafeName: "BIT Mesra" },
-      time: "2h ago",
-      type: "event",
-      content: "Hey everyone! The GDSC Solution Challenge kickoff is happening this Friday at the CAT Hall. Don't miss out! 🚀 #Google #DeveloperStudentClubs",
-      event: { title: "Solution Challenge Kickoff 2024", date: "Fri, Feb 24 • 5:00 PM", location: "CAT Hall, Main Building", attendees: 142 },
-      likes: 234, comments: 45, shares: 12
-    },
-];
+import { Post } from "@/components/dashboard/feed/FeedPost";
 
 interface PublicProfileClientProps {
     user: User;
     college: College | null | undefined;
     isCurrentUser: boolean;
+    initialPosts: Post[];
 }
 
-export function PublicProfileClient({ user, college, isCurrentUser }: PublicProfileClientProps) {
+export function PublicProfileClient({ user, college, isCurrentUser, initialPosts }: PublicProfileClientProps) {
   const displayName = user.nickname || user.name;
   const usernameStr = user.username || 'user';
   const socialLinks = user.socialLinks as { github?: string; linkedin?: string; portfolio?: string } || {};
@@ -133,13 +124,15 @@ export function PublicProfileClient({ user, college, isCurrentUser }: PublicProf
                       <button className="font-medium text-muted-foreground hover:text-white transition-colors px-2">Events</button>
                   </div>
 
-                  {USER_POSTS.map(post => (
-                      <FeedPost key={post.id} post={post as unknown as Parameters<typeof FeedPost>[0]['post']} />
+                  {initialPosts.map(post => (
+                      <FeedPost key={post.id} post={post} />
                   ))}
                   
-                  <div className="py-8 text-center text-muted-foreground">
-                      No more posts to show.
-                  </div>
+                  {initialPosts.length === 0 && (
+                      <div className="py-8 text-center text-muted-foreground">
+                          No posts to show yet.
+                      </div>
+                  )}
               </div>
           </div>
        </div>

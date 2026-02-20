@@ -1,7 +1,7 @@
 import { PublicProfileClient } from "@/components/profile/PublicProfileClient";
 import { Metadata } from "next";
 import { db } from "@/db/drizzle";
-import { users, colleges } from "@/db/schema";
+import { users, colleges, posts } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { stackServerApp } from "@/stack/server";
@@ -42,5 +42,30 @@ export default async function PublicProfilePage({ params }: PageProps) {
   const stackUser = await stackServerApp.getUser();
   const isCurrentUser = stackUser?.id === profileUser.id;
 
-  return <PublicProfileClient user={profileUser} college={collegeData} isCurrentUser={isCurrentUser} />;
+  const rawPosts = await db.query.posts.findMany({
+      where: eq(posts.userId, profileUser.id),
+      orderBy: (posts, { desc }) => [desc(posts.createdAt)],
+  });
+
+  const mappedPosts = rawPosts.map(p => ({
+      id: p.id,
+      user: {
+          name: profileUser.nickname || profileUser.name,
+          username: profileUser.username || 'user',
+          avatar: profileUser.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${profileUser.username}`,
+          verified: !!profileUser.verified,
+      },
+      time: new Date(p.createdAt).toLocaleDateString(),
+      type: p.type as any,
+      content: p.content || '',
+      image: p.mediaUrls?.[0],
+      poll: p.pollDetails as any,
+      event: p.eventDetails as any,
+      article: p.articleDetails as any,
+      likes: p.likesCount || 0,
+      comments: p.commentsCount || 0,
+      shares: p.sharesCount || 0,
+  }));
+
+  return <PublicProfileClient user={profileUser} college={collegeData} isCurrentUser={isCurrentUser} initialPosts={mappedPosts} />;
 }
