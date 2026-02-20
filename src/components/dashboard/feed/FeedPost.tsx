@@ -7,14 +7,12 @@ import {
   MoreVertical, 
   Heart, 
   MessageCircle, 
-  Send,
   Share2,
   Calendar,
   MapPin,
   FileText,
   Flag,
-  Bookmark,
-  ExternalLink
+  Bookmark
 } from "lucide-react";
 import { 
   DropdownMenu,
