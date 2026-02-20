@@ -5,9 +5,7 @@ import { CommunityHero } from "@/components/community/CommunityHero";
 import { CommunityStats } from "@/components/community/CommunityStats";
 import { CommunityTabs } from "@/components/community/CommunityTabs";
 import { Metadata } from "next";
-import { db } from "@/db/drizzle";
-import { communities } from "@/db/schema";
-import { eq, or } from "drizzle-orm";
+import { getCommunityBySlugOrId } from "@/actions/community.actions";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -15,13 +13,8 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const numericId = parseInt(slug, 10);
   
-  const community = await db.query.communities.findFirst({
-      where: isNaN(numericId)
-          ? eq(communities.slug, slug)
-          : or(eq(communities.slug, slug), eq(communities.id, numericId))
-  });
+  const community = await getCommunityBySlugOrId(slug);
 
   if (!community) {
     return {
@@ -37,13 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function CommunityPage({ params }: PageProps) {
   const { slug } = await params;
-  const numericId = parseInt(slug, 10);
 
-  const community = await db.query.communities.findFirst({
-      where: isNaN(numericId)
-          ? eq(communities.slug, slug)
-          : or(eq(communities.slug, slug), eq(communities.id, numericId))
-  });
+  const community = await getCommunityBySlugOrId(slug);
 
   if (!community) {
     return notFound();

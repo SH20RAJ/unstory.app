@@ -1,9 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CheckCircle2 } from "lucide-react";
-import { db } from "@/db/drizzle";
-import { notifications } from "@/db/schema";
-import { desc, eq } from "drizzle-orm";
 import { stackServerApp } from "@/stack/server";
+import { getUserNotifications } from "@/actions/notifications.actions";
 
 interface ActivityItem {
     id: string;
@@ -21,13 +19,9 @@ export async function ActivitySidebar() {
   let activities: ActivityItem[] = [];
 
   if (user) {
-      const recentNotifs = await db.query.notifications.findMany({
-          where: eq(notifications.userId, user.id),
-          orderBy: [desc(notifications.createdAt)],
-          limit: 6
-      });
+      const recentNotifs = await getUserNotifications(user.id);
 
-      activities = recentNotifs.map(n => ({
+      activities = recentNotifs.slice(0, 6).map(n => ({
           id: n.id.toString(),
           avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${n.id}`,
           user: n.title || "System",

@@ -4,19 +4,15 @@ import { Plus } from "lucide-react";
 import { CommunityFilters } from "@/components/community/CommunityFilters";
 import { CommunityCard } from "@/components/community/CommunityCard";
 import { Metadata } from "next";
-import { db } from "@/db/drizzle";
-import { communities } from "@/db/schema";
-import { desc } from "drizzle-orm";
+import { getAllCommunities } from "@/actions/community.actions";
 
 export const metadata: Metadata = {
   title: "Communities | Unstory",
-  description: "Explore and join student communities, clubs, and societies.",
+  description: "Join communities based on your interests.",
 };
 
 export default async function CommunityLandingPage() {
-  const allCommunities = await db.query.communities.findMany({
-      orderBy: [desc(communities.createdAt)],
-  });
+  const allCommunities = await getAllCommunities();
 
   return (
     <DashboardLayout>

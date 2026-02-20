@@ -1,5 +1,7 @@
-import { NotificationsClient } from "@/components/notifications/NotificationsClient";
+import { NotificationsClient, NotificationUI } from "@/components/notifications/NotificationsClient";
 import { Metadata } from "next";
+import { getUserNotifications } from "@/actions/notifications.actions";
+import { stackServerApp } from "@/stack/server";
 
 export const metadata: Metadata = {
   title: "Notifications | Unstory",
@@ -7,6 +9,21 @@ export const metadata: Metadata = {
 };
 
 export default async function NotificationsPage() {
-  // We will fetch from a server action here later
-  return <NotificationsClient notices={[]} />;
+  const user = await stackServerApp.getUser();
+  if (!user) return <NotificationsClient notices={[]} />;
+
+  const rawNotifs = await getUserNotifications(user.id);
+  const notices: NotificationUI[] = rawNotifs.map((n) => ({
+      id: n.id.toString(),
+      type: n.type,
+      content: n.message || "",
+      time: new Date(n.createdAt).toLocaleDateString(),
+      read: n.read || false,
+      user: {
+          name: n.title || "User",
+          avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${n.id}`, 
+      }
+  }));
+
+  return <NotificationsClient notices={notices} />;
 }
