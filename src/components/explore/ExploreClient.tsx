@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { cn } from "@/lib/utils";
 import { Heart, MessageCircle, Play } from "lucide-react";
 import Image from "next/image";
@@ -19,7 +18,7 @@ interface ExploreClientProps {
 
 export function ExploreClient({ exploreItems }: ExploreClientProps) {
   return (
-    <DashboardLayout showRightSidebar={false}>
+    <>
       <div className="flex flex-col gap-6">
         <h1 className="text-2xl font-bold tracking-tight">Explore</h1>
 
@@ -69,6 +68,6 @@ export function ExploreClient({ exploreItems }: ExploreClientProps) {
             ))}
         </div>
       </div>
-    </DashboardLayout>
+    </>
   );
 }

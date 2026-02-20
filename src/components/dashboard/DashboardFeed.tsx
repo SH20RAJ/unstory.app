@@ -5,7 +5,7 @@ import { db } from "@/db/drizzle";
 import { users } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { stackServerApp } from "@/stack/server";
-import { getDashboardFeedPosts } from "@/actions/posts.actions";
+import { getDashboardFeedPosts, getActiveStories } from "@/actions/posts.actions";
 
 export async function DashboardFeed() {
   const stackUser = await stackServerApp.getUser();
@@ -17,6 +17,16 @@ export async function DashboardFeed() {
   }
 
   const rawPosts = await getDashboardFeedPosts();
+  const rawStories = await getActiveStories();
+
+  const mappedStories = rawStories.map(s => ({
+      id: s.story.id.toString(),
+      name: s.user.nickname || s.user.name,
+      avatar: s.user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${s.user.username}`,
+      isLive: false,
+      img: s.story.mediaUrl,
+  }));
+
 
   // Map to the expected UI Post type
   const mappedPosts: Post[] = rawPosts.map(p => ({
@@ -42,7 +52,7 @@ export async function DashboardFeed() {
 
   return (
     <div className="flex flex-col gap-8 h-full max-w-2xl mx-auto w-full">
-        <StoryRail />
+        <StoryRail stories={mappedStories} />
         <CreatePost userAvatar={dbUser?.avatar || null} userName={dbUser?.nickname || dbUser?.name || "User"} />
         
         <div className="space-y-6">

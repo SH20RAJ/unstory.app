@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { MapPin, Globe, Users, GraduationCap, Calendar, Mail, MessageCircle } from "lucide-react";
@@ -54,7 +53,7 @@ function mapToUIFeedPost(dbPost: Record<string, unknown>, dbUser: Record<string,
 
 export function CollegeClient({ college }: CollegeClientProps) {
   return (
-    <DashboardLayout>
+    <>
       <div className="flex flex-col h-full w-full max-w-4xl mx-auto pb-20">
         
         {/* Hero Section */}
@@ -174,6 +173,6 @@ export function CollegeClient({ college }: CollegeClientProps) {
 
         </div>
       </div>
-    </DashboardLayout>
+    </>
   );
 }

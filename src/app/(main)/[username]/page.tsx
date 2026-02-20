@@ -6,6 +6,7 @@ import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import { stackServerApp } from "@/stack/server";
 import { Post } from "@/components/dashboard/feed/FeedPost";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 interface PageProps {
   params: Promise<{ username: string }>;
@@ -69,5 +70,9 @@ export default async function PublicProfilePage({ params }: PageProps) {
       shares: p.sharesCount || 0,
   }));
 
-  return <PublicProfileClient user={profileUser} college={collegeData} isCurrentUser={isCurrentUser} initialPosts={mappedPosts} />;
+  return (
+    <DashboardLayout>
+      <PublicProfileClient user={profileUser} college={collegeData} isCurrentUser={isCurrentUser} initialPosts={mappedPosts} />
+    </DashboardLayout>
+  );
 }

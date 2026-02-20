@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { SwipeDeck } from "@/components/dating/SwipeDeck";
 import { DatingProfile } from "@/db/schema";
 import { Heart, SlidersHorizontal } from "lucide-react";
@@ -12,7 +11,7 @@ interface DatingClientProps {
 
 export function DatingClient({ profiles }: DatingClientProps) {
   return (
-    <DashboardLayout>
+    <>
        <div className="flex flex-col h-[calc(100vh-80px)] md:h-screen max-w-2xl mx-auto w-full px-4 py-6">
            {/* Header */}
            <div className="flex items-center justify-between mb-6">
@@ -34,6 +33,6 @@ export function DatingClient({ profiles }: DatingClientProps) {
                <SwipeDeck profiles={profiles} />
            </div>
        </div>
-    </DashboardLayout>
+    </>
   );
 }

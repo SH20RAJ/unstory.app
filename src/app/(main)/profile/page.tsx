@@ -5,6 +5,7 @@ import { syncUser } from "@/lib/auth";
 import { db } from "@/db/drizzle";
 import { colleges } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 export const metadata: Metadata = {
   title: "Profile | Unstory",
@@ -30,5 +31,9 @@ export default async function ProfilePage() {
     }
   }
 
-  return <ProfileClient user={dbUser} college={collegeData} />;
+  return (
+    <DashboardLayout>
+      <ProfileClient user={dbUser} college={collegeData} />
+    </DashboardLayout>
+  );
 }

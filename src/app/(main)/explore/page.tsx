@@ -1,6 +1,7 @@
 import { ExploreClient } from "@/components/explore/ExploreClient";
 import { Metadata } from "next";
 import { getExploreMediaPosts } from "@/actions/posts.actions";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 export const metadata: Metadata = {
   title: "Explore | Unstory",
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 
 export default async function ExplorePage() {
   const exploreItems = await getExploreMediaPosts();
-  return <ExploreClient exploreItems={exploreItems} />;
+  return (
+    <DashboardLayout showRightSidebar={false}>
+      <ExploreClient exploreItems={exploreItems} />
+    </DashboardLayout>
+  );
 }

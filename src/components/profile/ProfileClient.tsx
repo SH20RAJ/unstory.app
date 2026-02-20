@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { User, College } from "@/db/schema";
 
 interface ProfileClientProps {
@@ -15,16 +14,16 @@ interface ProfileClientProps {
 export function ProfileClient({ user, college }: ProfileClientProps) {
   if (!user) {
       return (
-          <DashboardLayout>
+          <>
               <div className="flex items-center justify-center h-[50vh]">
                   <p className="text-muted-foreground">Please log in to view your profile.</p>
               </div>
-          </DashboardLayout>
+          </>
       )
   }
 
   return (
-    <DashboardLayout>
+    <>
       <div className="flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
@@ -95,6 +94,6 @@ export function ProfileClient({ user, college }: ProfileClientProps) {
           </Card>
         </div>
       </div>
-    </DashboardLayout>
+    </>
   );
 }

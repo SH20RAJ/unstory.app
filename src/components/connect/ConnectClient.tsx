@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { User, College } from "@/db/schema";
 import { UserPlus, Sparkles, MapPin } from "lucide-react";
 
@@ -13,7 +12,7 @@ interface ConnectClientProps {
 export function ConnectClient({ suggestedUsers }: ConnectClientProps) {
 
   return (
-    <DashboardLayout>
+    <>
         <div className="max-w-2xl mx-auto w-full pb-20 px-4 pt-4">
             <div className="flex items-center justify-between mb-6">
                  <div>
@@ -65,6 +64,6 @@ export function ConnectClient({ suggestedUsers }: ConnectClientProps) {
                 </div>
             </div>
         </div>
-    </DashboardLayout>
+    </>
   );
 }

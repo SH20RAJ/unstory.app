@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,7 +24,7 @@ export function PublicProfileClient({ user, college, isCurrentUser, initialPosts
   const socialLinks = user.socialLinks as { github?: string; linkedin?: string; portfolio?: string } || {};
 
   return (
-    <DashboardLayout>
+    <>
        <div className="flex flex-col gap-6">
           {/* Profile Header */}
           <div className="relative mb-12">
@@ -144,6 +143,6 @@ export function PublicProfileClient({ user, college, isCurrentUser, initialPosts
               </div>
           </div>
        </div>
-    </DashboardLayout>
+    </>
   );
 }

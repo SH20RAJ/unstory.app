@@ -7,54 +7,14 @@ import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Textarea } from "@/components/ui/textarea";
 
-// Simulating the post data fetching
-const POSTS: Post[] = [
-    {
-      id: 1,
-      user: {
-        name: "Tanya Sharma",
-        username: "tanyaux",
-        avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-        verified: true,
-        collegeSafeName: "BIT Mesra"
-      },
-      time: "2h ago",
-      type: "event",
-      content: "Hey everyone! The GDSC Solution Challenge kickoff is happening this Friday at the CAT Hall. Don't miss out! 🚀 #Google #DeveloperStudentClubs",
-      event: {
-        title: "Solution Challenge Kickoff 2024",
-        date: "Fri, Feb 24 • 5:00 PM",
-        location: "CAT Hall, Main Building",
-        attendees: 142
-      },
-      likes: 234,
-      comments: 45,
-      shares: 12
-    },
-     {
-      id: 2,
-      user: {
-        name: "Rohan Das",
-        username: "rohan_music",
-        avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
-        collegeSafeName: "BIT Mesra"
-      },
-      time: "4h ago",
-      type: "text",
-      content: "Confession #291: I think the new Nescafe guy puts too much sugar in the cold coffee, but I'm too shy to tell him. ☕️😅",
-      likes: 856,
-      comments: 120,
-      shares: 45
-    }
-  ];
+
 
 interface PostClientProps {
-    postId: number;
+    post: Post;
 }
 
-export function PostClient({ postId }: PostClientProps) {
+export function PostClient({ post }: PostClientProps) {
   const router = useRouter();
-  const post = POSTS.find(p => p.id === postId) || POSTS[0]; // Fallback for mock
 
   return (
     <div className="w-full min-h-screen bg-[#09090b] flex flex-col font-sans">

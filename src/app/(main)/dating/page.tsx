@@ -2,6 +2,7 @@ import { DatingClient } from "@/components/dating/DatingClient";
 import { Metadata } from "next";
 import { stackServerApp } from "@/stack/server";
 import { getDatingProfiles } from "@/actions/dating.actions";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 export const metadata: Metadata = {
   title: "Dating | Unstory",
@@ -12,6 +13,10 @@ export default async function DatingPage() {
   const stackUser = await stackServerApp.getUser();
   const profiles = await getDatingProfiles(stackUser?.id);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <DatingClient profiles={profiles as any} />;
+  return (
+    <DashboardLayout>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      <DatingClient profiles={profiles as any} />
+    </DashboardLayout>
+  );
 }

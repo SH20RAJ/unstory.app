@@ -1,6 +1,6 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Heart, MessageCircle, UserPlus, Bell, Zap } from "lucide-react";
@@ -22,7 +22,7 @@ interface NotificationsClientProps {
 
 export function NotificationsClient({ notices }: NotificationsClientProps) {
   return (
-    <DashboardLayout>
+    <>
        <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
               <h1 className="text-2xl font-bold tracking-tight">Notifications</h1>
@@ -83,6 +83,6 @@ export function NotificationsClient({ notices }: NotificationsClientProps) {
                </div>
           )}
        </div>
-    </DashboardLayout>
+    </>
   );
 }

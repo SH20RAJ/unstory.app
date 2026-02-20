@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db/drizzle";
-import { posts, users, colleges } from "@/db/schema";
+import { posts, users, colleges, stories } from "@/db/schema";
 import { desc, sql, eq } from "drizzle-orm";
 
 export async function getDashboardFeedPosts() {
@@ -78,4 +78,33 @@ export async function getArticleById(id: number) {
           comments: post.commentsCount || 0,
       }
   };
+}
+
+export async function getSinglePost(id: number) {
+  const rawPost = await db.select({
+      post: posts,
+      user: users,
+      college: colleges,
+  })
+  .from(posts)
+  .innerJoin(users, eq(posts.userId, users.id))
+  .leftJoin(colleges, eq(users.collegeId, colleges.id))
+  .where(eq(posts.id, id))
+  .limit(1);
+
+  if (rawPost.length === 0) return null;
+
+  return rawPost[0];
+}
+export async function getActiveStories() {
+  const activeStories = await db.select({
+      story: stories,
+      user: users,
+  })
+  .from(stories)
+  .innerJoin(users, eq(stories.userId, users.id))
+  .orderBy(desc(stories.createdAt))
+  .limit(20);
+
+  return activeStories;
 }

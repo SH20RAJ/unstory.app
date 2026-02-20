@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getCollegeByDomainOrSlug } from "@/actions/college.actions";
 import { CollegeClient } from "@/components/college/CollegeClient";
+import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 
 interface PageProps {
   params: Promise<{ domain: string }>;
@@ -34,6 +35,10 @@ export default async function CollegePage({ params }: PageProps) {
     return notFound();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <CollegeClient college={college as any} />;
+  return (
+    <DashboardLayout>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+      <CollegeClient college={college as any} />
+    </DashboardLayout>
+  );
 }

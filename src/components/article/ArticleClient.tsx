@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -29,10 +28,10 @@ interface ArticleClientProps {
     article: ArticleData;
 }
 
-export function ArticleClient({ id: _id, article }: ArticleClientProps) {
+export function ArticleClient({ article }: ArticleClientProps) {
 
   return (
-    <DashboardLayout showRightSidebar={false}>
+    <>
        <div className="max-w-3xl mx-auto w-full pb-20">
             {/* Back Nav */}
             <div className="mb-6">
@@ -106,6 +105,6 @@ export function ArticleClient({ id: _id, article }: ArticleClientProps) {
                 </div>
             </div>
        </div>
-    </DashboardLayout>
+    </>
   );
 }
