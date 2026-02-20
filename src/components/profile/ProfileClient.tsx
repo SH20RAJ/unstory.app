@@ -5,23 +5,43 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
+import { User, College } from "@/db/schema";
 
-export function ProfileClient() {
+interface ProfileClientProps {
+    user: User | null | undefined;
+    college: College | null | undefined;
+}
+
+export function ProfileClient({ user, college }: ProfileClientProps) {
+  if (!user) {
+      return (
+          <DashboardLayout>
+              <div className="flex items-center justify-center h-[50vh]">
+                  <p className="text-muted-foreground">Please log in to view your profile.</p>
+              </div>
+          </DashboardLayout>
+      )
+  }
+
   return (
     <DashboardLayout>
       <div className="flex flex-col gap-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <Avatar className="h-24 w-24 md:h-32 md:w-32 border-4 border-background shadow-lg">
-             <AvatarImage src="https://github.com/shadcn.png" />
-             <AvatarFallback>CN</AvatarFallback>
+             <AvatarImage src={user.avatar || "https://github.com/shadcn.png"} />
+             <AvatarFallback>{user.username?.slice(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col items-center md:items-start gap-2 pt-2 text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl font-bold">Student Name</h1>
-            <p className="text-muted-foreground">Computer Science &apos;26 • BIT Mesra</p>
-            <div className="flex gap-2 mt-2">
-              <Badge variant="secondary">Developer</Badge>
-              <Badge variant="secondary">Photographer</Badge>
+            <h1 className="text-2xl md:text-3xl font-bold">{user.name}</h1>
+            <p className="text-muted-foreground">
+                {user.major || "Student"} • {college?.name || "University"} {user.year ? `'${user.year.slice(-2)}` : ""}
+            </p>
+            <div className="flex gap-2 mt-2 flex-wrap justify-center md:justify-start">
+               {user.interests?.map((interest, i) => (
+                   <Badge key={i} variant="secondary">{interest}</Badge>
+               ))}
+               {!user.interests?.length && <Badge variant="outline">No interests added</Badge>}
             </div>
             <div className="flex gap-4 mt-4">
                <div className="text-center">

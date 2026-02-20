@@ -1,14 +1,29 @@
 
-import { pgTable, text, timestamp, boolean, integer, jsonb, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, boolean, integer, jsonb, serial, primaryKey } from "drizzle-orm/pg-core";
 
 // --- Users ---
 export const users = pgTable("users", {
   id: text("id").primaryKey(), // Using text IDs from mock data/auth
   name: text("name").notNull(),
-  username: text("username").unique().notNull(),
+  username: text("username").unique(),
   avatar: text("avatar"),
   bio: text("bio"),
-  college: text("college"),
+  
+  // Link to college
+  collegeId: text("college_id").references(() => colleges.id),
+  
+  // Profile details
+  banner: text("banner"),
+  major: text("major"),
+  year: text("year"), // e.g., "2026", "Freshman"
+  role: text("role").default('Student'), // Student, Alumni, Faculty
+  
+  // Enhanced profile
+  interests: text("interests").array(),
+  socialLinks: jsonb("social_links"), // { github: "...", linkedin: "..." }
+  
+  metadata: jsonb("metadata"), // For future extensibility
+  
   verified: boolean("verified").default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
@@ -81,3 +96,55 @@ export type Post = typeof posts.$inferSelect;
 export type Community = typeof communities.$inferSelect;
 export type DatingProfile = typeof datingProfiles.$inferSelect;
 export type College = typeof colleges.$inferSelect;
+// --- User Connections ---
+export const follows = pgTable("follows", {
+  followerId: text("follower_id").notNull().references(() => users.id),
+  followingId: text("following_id").notNull().references(() => users.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.followerId, t.followingId] }),
+}));
+
+// --- Interactions ---
+export const comments = pgTable("comments", {
+  id: serial("id").primaryKey(),
+  postId: integer("post_id").notNull().references(() => posts.id),
+  userId: text("user_id").notNull().references(() => users.id),
+  content: text("content").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const likes = pgTable("likes", {
+  postId: integer("post_id").notNull().references(() => posts.id),
+  userId: text("user_id").notNull().references(() => users.id),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.postId, t.userId] }),
+}));
+
+export const notifications = pgTable("notifications", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id), // Receiver
+  type: text("type").notNull(), // 'like', 'comment', 'follow', 'system'
+  title: text("title"),
+  message: text("message"),
+  metadata: jsonb("metadata"), // Link to post, user, etc.
+  read: boolean("read").default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// --- Stories ---
+export const stories = pgTable("stories", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  mediaUrl: text("media_url").notNull(),
+  type: text("type").default('image'),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type Follow = typeof follows.$inferSelect;
+export type Comment = typeof comments.$inferSelect;
+export type Like = typeof likes.$inferSelect;
+export type Notification = typeof notifications.$inferSelect;
+export type Story = typeof stories.$inferSelect;
